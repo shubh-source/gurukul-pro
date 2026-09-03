@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Images } from '../assets/images';
+import LiveRoutineTracker from '../components/LiveRoutineTracker';
 import { ArrowRight, Sparkles, BookOpen, Clock, ShieldCheck, Award, Heart, Flame, Compass as JyotishIcon, CheckCircle2, ChevronRight, Bell, FileText, ChevronDown, ChevronUp, Shield, Flag } from 'lucide-react';
 
 export default function Home({ onNavigate, lang }) {
@@ -164,10 +165,13 @@ export default function Home({ onNavigate, lang }) {
         </div>
       </section>
 
-      {/* ABOUT INSTITUTE SECTION */}
+      {/* ABOUT INSTITUTE SECTION WITH LIVE ROUTINE TRACKER (PRO EXCLUSIVE) */}
       <section style={{ padding: '5rem 0', background: 'var(--bg-primary)' }}>
         <div className="container">
           
+          {/* REAL TIME ROUTINE TRACKER WIDGET */}
+          <LiveRoutineTracker lang={lang} />
+
           <div className="section-header">
             <span className="section-tag">{isEn ? 'Institute Overview' : 'संस्थान परिचय'}</span>
             <h2 className="section-title font-serif">{isEn ? 'Shri Atmanand Sanskrit Teaching Institute' : 'श्री आत्मानन्द संस्कृत शिक्षण संस्थान'}</h2>
