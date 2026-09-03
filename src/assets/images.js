@@ -1,4 +1,6 @@
 // Shri Atmanand Sanskrit Shikshan Sansthan - Asset Module
+import sansthanLogo from './logo.png';
+
 import heroCampusImg from './hero_gurukul_campus_1785478146001.jpg';
 import guruParamparaImg from './guru_parampara_1785478162293.jpg';
 import stemVedicLabImg from './stem_vedic_lab_1785478174640.jpg';
@@ -9,6 +11,7 @@ import gaushalaImg from './naimisharanya_gaushala_1788275298635.jpg';
 import yagyaImg from './yagya_anushthan_1788275317351.jpg';
 
 export const Images = {
+  logo: sansthanLogo,
   atmanandHero: atmanandHeroImg,
   gaushala: gaushalaImg,
   yagya: yagyaImg,

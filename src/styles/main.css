@@ -1,4 +1,4 @@
-/* श्री आत्मानन्द संस्कृत शिक्षण संस्थान - Main Design System & Theme Styles (Pro Version) */
+/* श्री आत्मानन्द संस्कृत शिक्षण संस्थान - Main Design System & Theme Styles (Standard Version) */
 
 :root {
   /* Light Theme ("Surya Gold") */
@@ -102,7 +102,7 @@ button {
   background: none;
 }
 
-/* Glassmorphism & Card Utils with Smooth Cursor Hover Zoom (Pro Version) */
+/* Glassmorphism & Card Utils (Standard Version — Clean Static Hover) */
 .glass-panel {
   background: var(--bg-glass);
   backdrop-filter: blur(16px);
@@ -110,12 +110,10 @@ button {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  transition: var(--transition);
 }
 
 .glass-panel:hover {
-  transform: translateY(-6px) scale(1.035);
-  box-shadow: 0 16px 38px rgba(212, 175, 55, 0.35);
   border-color: var(--accent-gold);
 }
 
@@ -189,24 +187,6 @@ button {
 @keyframes pulseGlow {
   0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
   50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); }
-}
-
-/* Cinematic Unblur Entrance Animation when leaving Welcome Modal */
-@keyframes unblurEntrance {
-  0% {
-    filter: blur(16px);
-    transform: scale(0.98);
-    opacity: 0.6;
-  }
-  100% {
-    filter: blur(0px);
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.unblur-entrance {
-  animation: unblurEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-fade-in {

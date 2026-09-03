@@ -4,7 +4,6 @@ import Footer from './components/Footer';
 import SocialFloating from './components/SocialFloating';
 import AudioPlayer from './components/AudioPlayer';
 import SearchModal from './components/SearchModal';
-import WelcomeModal from './components/WelcomeModal';
 import LanguageModal from './components/LanguageModal';
 
 import Home from './pages/Home';
@@ -114,7 +113,6 @@ export default function App() {
   return (
     <div className="page-container">
       <LanguageModal currentLang={lang} onSelectLanguage={(l) => setLang(l)} />
-      <WelcomeModal onNavigate={handlePageChange} lang={lang} />
 
       <Navbar
         activePage={activePage}

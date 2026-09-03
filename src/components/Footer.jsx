@@ -1,4 +1,5 @@
 import React from 'react';
+import { Images } from '../assets/images';
 import { Youtube, Instagram, Facebook, Twitter, Linkedin, Send, Music2, Mail, Phone, MapPin, Heart, ArrowUpRight } from 'lucide-react';
 
 export default function Footer({ setActivePage }) {
@@ -40,8 +41,8 @@ export default function Footer({ setActivePage }) {
         >
           {/* Col 1: Brand Info */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '1.6rem' }}>🚩</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1rem' }}>
+              <img src={Images.logo} alt="स्वामी आत्मानन्द गुरुकुलम्" style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid var(--accent-gold)', objectFit: 'cover' }} />
               <span className="font-serif gold-gradient-text" style={{ fontSize: '1.3rem', fontWeight: '800' }}>
                 श्री आत्मानन्द संस्कृत शिक्षण संस्थान
               </span>

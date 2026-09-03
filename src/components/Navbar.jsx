@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Images } from '../assets/images';
 import { Sun, Moon, Search, Menu, X, Sparkles, BookOpen, GraduationCap, Phone, Calendar, Compass, Shield, ArrowRight, Heart, Flame, Compass as JyotishIcon, Image, Bell, Newspaper, Award, Flag, Globe } from 'lucide-react';
 
 export default function Navbar({ activePage, setActivePage, theme, toggleTheme, lang, onToggleLang, onOpenSearch }) {
@@ -104,26 +105,31 @@ export default function Navbar({ activePage, setActivePage, theme, toggleTheme, 
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '82px' }}>
           
-          {/* Brand Logo & Title */}
+          {/* Brand Official Logo & Title */}
           <div 
             onClick={() => handleNavClick('home')}
             style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', cursor: 'pointer' }}
           >
             <div 
               style={{
-                width: '48px',
-                height: '48px',
+                width: '54px',
+                height: '54px',
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, var(--accent-vermillion) 0%, var(--accent-gold) 100%)',
+                overflow: 'hidden',
+                border: '2px solid var(--accent-gold)',
+                boxShadow: '0 0 15px rgba(212, 175, 55, 0.4)',
+                background: '#000',
+                flexShrink: 0,
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 0 15px rgba(183, 28, 28, 0.4)',
-                color: '#fff',
-                flexShrink: 0
+                justifyContent: 'center'
               }}
             >
-              <Flag size={22} style={{ color: '#fff' }} />
+              <img 
+                src={Images.logo} 
+                alt="स्वामी आत्मानन्द गुरुकुलम् नैमिषारण्य" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </div>
             <div>
               <span className="font-serif gold-gradient-text" style={{ fontSize: '1.25rem', fontWeight: '800', display: 'block', lineHeight: 1.15 }}>
@@ -309,9 +315,7 @@ export default function Navbar({ activePage, setActivePage, theme, toggleTheme, 
           {/* Drawer Header */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem', paddingBottom: '1rem', borderBottom: '1px solid var(--border-color)', flexShrink: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--accent-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0f0d0e' }}>
-                <Flag size={16} />
-              </div>
+              <img src={Images.logo} alt="स्वामी आत्मानन्द गुरुकुलम्" style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid var(--accent-gold)', objectFit: 'cover' }} />
               <div>
                 <h3 className="font-serif gold-gradient-text" style={{ fontSize: '1.15rem', fontWeight: '800' }}>
                   {isEn ? 'Shri Atmanand Sanskrit Teaching Institute' : 'श्री आत्मानन्द संस्कृत शिक्षण संस्थान'}

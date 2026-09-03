@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Images } from '../assets/images';
 import ScholarshipCalculator from '../components/ScholarshipCalculator';
 import { GraduationCap, CheckCircle2, FileText, Printer, ArrowRight } from 'lucide-react';
 
@@ -144,10 +145,10 @@ export default function Admission({ onNavigate, lang }) {
 
           {/* ONLINE ADMISSION FORM OR CONFIRMATION SLIP */}
           {slip ? (
-            /* PRINTABLE REGISTRATION SLIP */
+            /* PRINTABLE REGISTRATION SLIP WITH OFFICIAL LOGO */
             <div className="glass-panel" style={{ maxWidth: '680px', margin: '0 auto', padding: '2.5rem', background: 'var(--bg-secondary)', border: '2px dashed var(--accent-saffron)' }}>
               <div style={{ textAlign: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem', marginBottom: '1.5rem' }}>
-                <span style={{ fontSize: '2.5rem' }}>🚩</span>
+                <img src={Images.logo} alt="स्वामी आत्मानन्द गुरुकुलम्" style={{ width: '64px', height: '64px', borderRadius: '50%', border: '2px solid var(--accent-gold)', margin: '0 auto 0.5rem auto', display: 'block', objectFit: 'cover' }} />
                 <h2 className="font-serif gold-gradient-text" style={{ fontSize: '1.6rem', fontWeight: '800' }}>
                   श्री आत्मानन्द संस्कृत शिक्षण संस्थान
                 </h2>

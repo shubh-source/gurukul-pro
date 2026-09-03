@@ -94,23 +94,21 @@ export default function WelcomeModal({ onNavigate }) {
         </div>
 
         {/* Content */}
-        <div style={{ padding: '0 2rem 2rem 2rem', textAlign: 'center', position: 'relative', marginTop: '-2.2rem' }}>
+        <div style={{ padding: '0 2rem 2rem 2rem', textAlign: 'center', position: 'relative', marginTop: '-2.8rem' }}>
           
           <div 
             style={{
-              width: '64px',
-              height: '64px',
+              width: '74px',
+              height: '74px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, var(--accent-vermillion) 0%, var(--accent-gold) 100%)',
-              color: '#fff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              overflow: 'hidden',
+              border: '3px solid var(--accent-gold)',
+              boxShadow: '0 0 25px rgba(212,175,55,0.7)',
               margin: '0 auto 1rem auto',
-              boxShadow: '0 0 25px rgba(212,175,55,0.6)'
+              background: '#000'
             }}
           >
-            <Flag size={28} style={{ color: '#fff' }} />
+            <img src={Images.logo} alt="स्वामी आत्मानन्द गुरुकुलम् नैमिषारण्य" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
 
           <span className="badge-gold" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>
