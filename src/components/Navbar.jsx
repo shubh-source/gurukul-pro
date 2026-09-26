@@ -4,6 +4,7 @@ import { Search, Menu, X, Sparkles, BookOpen, GraduationCap, Phone, Calendar, Co
 
 export default function Navbar({ activePage, setActivePage, lang, onToggleLang, onOpenSearch }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchHovered, setIsSearchHovered] = useState(false);
   const isEn = lang === 'en';
 
   const navItems = [
