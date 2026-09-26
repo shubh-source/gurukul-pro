@@ -40,23 +40,27 @@ export default function SocialFloating() {
             rel="noopener noreferrer"
             title={`श्री आत्मानन्द संस्कृत शिक्षण संस्थान - ${item.name}`}
             style={{
-              width: '36px',
-              height: '36px',
+              width: '38px',
+              height: '38px',
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: 'var(--text-primary)',
-              transition: 'var(--transition)',
+              transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
               background: 'transparent'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'scale(1.15)';
+              e.currentTarget.style.transform = 'scale(1.25) translateX(-5px)';
               e.currentTarget.style.color = item.color;
+              e.currentTarget.style.background = '#ffffff';
+              e.currentTarget.style.boxShadow = `0 6px 18px ${item.color}44`;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.transform = 'scale(1) translateX(0)';
               e.currentTarget.style.color = 'var(--text-primary)';
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.boxShadow = 'none';
             }}
           >
             <IconComponent size={18} />
