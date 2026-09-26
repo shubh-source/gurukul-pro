@@ -123,7 +123,7 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
             </div>
             <div>
               <span className="font-serif gold-gradient-text" style={{ fontSize: '1.25rem', fontWeight: '800', display: 'block', lineHeight: 1.15 }}>
-                {isEn ? 'Shri Atmanand Sanskrit Teaching Institute' : 'श्री आत्मानन्द संस्कृत शिक्षण संस्थान'}
+                {isEn ? 'Atmanand Sanskrit Teaching Institute' : 'आत्मानन्द संस्कृत शिक्षण संस्थान'}
               </span>
               <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: '600', display: 'block', marginTop: '2px' }}>
                 {isEn ? 'Sanskrit Education • Culture • Values • Cow Protection | Naimisharanya, Sitapur' : 'संस्कृत शिक्षा • संस्कार • संस्कृति • गौसेवा | नैमिषारण्य, सीतापुर (उ.प्र.)'}
@@ -283,7 +283,7 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
               <img src={Images.logo} alt="स्वामी आत्मानन्द गुरुकुलम्" style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid var(--accent-gold)', objectFit: 'cover' }} />
               <div>
                 <h3 className="font-serif gold-gradient-text" style={{ fontSize: '1.15rem', fontWeight: '800' }}>
-                  {isEn ? 'Shri Atmanand Sanskrit Teaching Institute' : 'श्री आत्मानन्द संस्कृत शिक्षण संस्थान'}
+                  {isEn ? 'Atmanand Sanskrit Teaching Institute' : 'आत्मानन्द संस्कृत शिक्षण संस्थान'}
                 </h3>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{isEn ? 'Naimisharanya, Sitapur (U.P.)' : 'नैमिषारण्य, सीतापुर (उ.प्र.)'}</p>
               </div>

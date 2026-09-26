@@ -45,7 +45,7 @@ export default function Admission({ onNavigate, lang }) {
       });
 
       // Live Database & WhatsApp Pre-formatted Message
-      const textMessage = `🚩 *श्री आत्मानन्द संस्कृत शिक्षण संस्थान — प्रवेश आवेदन पत्र*\n\n` +
+      const textMessage = `🚩 *आत्मानन्द संस्कृत शिक्षण संस्थान — प्रवेश आवेदन पत्र*\n\n` +
         `• *पंजीकरण सं:* ${regNum}\n` +
         `• *विद्यार्थी नाम:* ${formData.studentName}\n` +
         `• *जन्म तिथि:* ${formData.dob}\n` +
@@ -150,7 +150,7 @@ export default function Admission({ onNavigate, lang }) {
               <div style={{ textAlign: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem', marginBottom: '1.5rem' }}>
                 <img src={Images.logo} alt="स्वामी आत्मानन्द गुरुकुलम्" style={{ width: '64px', height: '64px', borderRadius: '50%', border: '2px solid var(--accent-gold)', margin: '0 auto 0.5rem auto', display: 'block', objectFit: 'cover' }} />
                 <h2 className="font-serif gold-gradient-text" style={{ fontSize: '1.6rem', fontWeight: '800' }}>
-                  श्री आत्मानन्द संस्कृत शिक्षण संस्थान
+                  आत्मानन्द संस्कृत शिक्षण संस्थान
                 </h2>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>नैमिषारण्य, सीतापुर (उ.प्र.) | ऑनलाइन प्रवेश पंजीकरण पर्ची</p>
               </div>

@@ -1,4 +1,4 @@
-// Shri Atmanand Sanskrit Shikshan Sansthan - Asset Module
+// Atmanand Sanskrit Shikshan Sansthan - Asset Module
 import sansthanLogo from './logo.png';
 
 import heroCampusImg from './hero_gurukul_campus_1785478146001.jpg';

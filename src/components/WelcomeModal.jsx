@@ -126,7 +126,7 @@ export default function WelcomeModal({ onNavigate, lang }) {
           </span>
 
           <h2 className="font-serif gold-gradient-text" style={{ fontSize: '1.75rem', fontWeight: '900', marginBottom: '0.75rem', lineHeight: 1.25 }}>
-            {isEn ? 'Welcome to Shri Atmanand Gurukul' : 'स्वागतम्! श्री आत्मानन्द संस्कृत शिक्षण संस्थान'}
+            {isEn ? 'Welcome to Atmanand Gurukul' : 'स्वागतम्! आत्मानन्द संस्कृत शिक्षण संस्थान'}
           </h2>
 
           <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: '1.5rem' }}>

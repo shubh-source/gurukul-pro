@@ -75,7 +75,7 @@ export default function Home({ onNavigate, lang }) {
             </div>
 
             <h1 className="font-serif" style={{ fontSize: 'clamp(2.1rem, 4.8vw, 3.4rem)', fontWeight: '900', lineHeight: 1.2, marginBottom: '1.25rem' }}>
-              {isEn ? 'Shri Atmanand Sanskrit Teaching Institute' : 'श्री आत्मानन्द संस्कृत शिक्षण संस्थान'}
+              {isEn ? 'Atmanand Sanskrit Teaching Institute' : 'आत्मानन्द संस्कृत शिक्षण संस्थान'}
             </h1>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '1.5rem' }}>
@@ -139,7 +139,7 @@ export default function Home({ onNavigate, lang }) {
             >
               <img 
                 src={Images.atmanandHero} 
-                alt="श्री आत्मानन्द संस्कृत शिक्षण संस्थान परिसर"
+                alt="आत्मानन्द संस्कृत शिक्षण संस्थान परिसर"
                 style={{ width: '100%', height: 'auto', display: 'block', transform: 'scale(1.02)' }}
               />
               <div 
@@ -174,7 +174,7 @@ export default function Home({ onNavigate, lang }) {
 
           <div className="section-header">
             <span className="section-tag">{isEn ? 'Institute Overview' : 'संस्थान परिचय'}</span>
-            <h2 className="section-title font-serif">{isEn ? 'Shri Atmanand Sanskrit Teaching Institute' : 'श्री आत्मानन्द संस्कृत शिक्षण संस्थान'}</h2>
+            <h2 className="section-title font-serif">{isEn ? 'Atmanand Sanskrit Teaching Institute' : 'आत्मानन्द संस्कृत शिक्षण संस्थान'}</h2>
             <p className="section-subtitle">
               {isEn ? 'Located in Naimisharanya, this institute is a unique center for Vedic values, character building, and cow protection.' : 'नैमिषारण्य की तपोभूमि पर स्थित यह संस्थान प्राचीन वैदिक मूल्यों, चरित्र निर्माण और गौसंरक्षण का अनुपम केंद्र है।'}
             </p>

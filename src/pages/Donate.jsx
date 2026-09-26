@@ -66,7 +66,7 @@ export default function Donate({ onNavigate }) {
               <div style={{ textAlign: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem', marginBottom: '1.5rem' }}>
                 <span style={{ fontSize: '2.2rem' }}>🚩</span>
                 <h2 className="font-serif gold-gradient-text" style={{ fontSize: '1.6rem', fontWeight: '800' }}>
-                  श्री आत्मानन्द संस्कृत शिक्षण संस्थान
+                  आत्मानन्द संस्कृत शिक्षण संस्थान
                 </h2>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>नैमिषारण्य, सीतापुर, उत्तर प्रदेश | दान रसीद</p>
               </div>

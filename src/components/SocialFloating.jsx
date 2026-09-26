@@ -38,7 +38,7 @@ export default function SocialFloating() {
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            title={`श्री आत्मानन्द संस्कृत शिक्षण संस्थान - ${item.name}`}
+            title={`आत्मानन्द संस्कृत शिक्षण संस्थान - ${item.name}`}
             style={{
               width: '38px',
               height: '38px',

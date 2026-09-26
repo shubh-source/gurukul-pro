@@ -18,7 +18,7 @@ export default function Notice({ onNavigate }) {
           <span className="section-tag">📢 प्रेस विज्ञप्ति एवं अपडेट्स</span>
           <h1 className="section-title font-serif">नवीनतम सूचना एवं समाचार (Notice)</h1>
           <p className="section-subtitle">
-            श्री आत्मानन्द संस्कृत शिक्षण संस्थान की आधिकारिक घोषणाएं एवं कार्यक्रम सूचना।
+            आत्मानन्द संस्कृत शिक्षण संस्थान की आधिकारिक घोषणाएं एवं कार्यक्रम सूचना।
           </p>
         </div>
       </section>

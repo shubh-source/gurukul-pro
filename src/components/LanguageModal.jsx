@@ -111,7 +111,7 @@ export default function LanguageModal({ currentLang, onSelectLanguage }) {
         </h2>
 
         <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '2rem', lineHeight: 1.6 }}>
-          श्री आत्मानन्द संस्कृत शिक्षण संस्थान की आधिकारिक वेबसाइट में आपका स्वागत है। कृपया अपनी पसंदीदा भाषा चुनें:
+          आत्मानन्द संस्कृत शिक्षण संस्थान की आधिकारिक वेबसाइट में आपका स्वागत है। कृपया अपनी पसंदीदा भाषा चुनें:
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>

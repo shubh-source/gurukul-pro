@@ -19,7 +19,7 @@ export default function Contact({ onNavigate }) {
           <span className="section-tag">Direct Enquiry & Support</span>
           <h1 className="section-title font-serif">संपर्क करें (Contact Us)</h1>
           <p className="section-subtitle">
-            श्री आत्मानन्द संस्कृत शिक्षण संस्थान, नैमिषारण्य, सीतापुर (उत्तर प्रदेश)
+            आत्मानन्द संस्कृत शिक्षण संस्थान, नैमिषारण्य, सीतापुर (उत्तर प्रदेश)
           </p>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function Contact({ onNavigate }) {
                   <div>
                     <h4 style={{ fontSize: '1.05rem', fontWeight: '700', marginBottom: '0.25rem' }}>स्थान एवं पता</h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      श्री आत्मानन्द संस्कृत शिक्षण संस्थान<br />
+                      आत्मानन्द संस्कृत शिक्षण संस्थान<br />
                       पावन तीर्थ क्षेत्र — नैमिषारण्य, तहसील मिश्रिख<br />
                       जनपद — सीतापुर, उत्तर प्रदेश - 261402
                     </p>
