@@ -18,12 +18,14 @@ import Admission from './pages/Admission';
 import Gallery from './pages/Gallery';
 import Notice from './pages/Notice';
 import Contact from './pages/Contact';
+import Academics from './pages/Academics';
 
 const HASH_MAP = {
   '': 'home',
   '#/': 'home',
   '#/about': 'about',
   '#/gurukul': 'gurukul',
+  '#/academics': 'academics',
   '#/gaushala': 'gaushala',
   '#/research': 'research',
   '#/sanskar': 'sanskar',
@@ -36,7 +38,14 @@ const HASH_MAP = {
 };
 
 const getPageFromHash = () => {
-  const hash = window.location.hash || '';
+  let hash = window.location.hash || '';
+  hash = hash.split('?')[0];
+  if (hash.endsWith('/') && hash.length > 2) {
+    hash = hash.slice(0, -1);
+  }
+  if (hash.startsWith('#') && !hash.startsWith('#/')) {
+    hash = '#/' + hash.slice(1);
+  }
   return HASH_MAP[hash] || 'home';
 };
 
@@ -72,7 +81,7 @@ export default function App() {
     if (window.location.hash !== targetHash) {
       window.location.hash = targetHash;
     }
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -97,6 +106,7 @@ export default function App() {
     switch (activePage) {
       case 'about': return <About onNavigate={handlePageChange} lang={lang} />;
       case 'gurukul': return <Gurukul onNavigate={handlePageChange} lang={lang} />;
+      case 'academics': return <Academics onNavigate={handlePageChange} lang={lang} />;
       case 'gaushala': return <Gaushala onNavigate={handlePageChange} lang={lang} />;
       case 'research': return <Research onNavigate={handlePageChange} lang={lang} />;
       case 'sanskar': return <Sanskar onNavigate={handlePageChange} lang={lang} />;

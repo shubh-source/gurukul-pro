@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Languages, Globe, Check } from 'lucide-react';
+import { Languages, Globe, Check, X } from 'lucide-react';
 
 export default function LanguageModal({ currentLang, onSelectLanguage }) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Open language selector if language hasn't been chosen yet
+    // Open language selector only once if language hasn't been chosen yet
     const savedLang = localStorage.getItem('gurukul_lang');
     if (!savedLang) {
       setIsOpen(true);
     }
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') handleClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, currentLang]);
+
+  const handleClose = () => {
+    localStorage.setItem('gurukul_lang', currentLang || 'hi');
+    setIsOpen(false);
+  };
 
   const handleSelect = (lang) => {
     localStorage.setItem('gurukul_lang', lang);
@@ -22,11 +37,12 @@ export default function LanguageModal({ currentLang, onSelectLanguage }) {
 
   return (
     <div 
+      onClick={handleClose}
       style={{
         position: 'fixed',
         inset: 0,
         zIndex: 10001,
-        background: 'rgba(0, 0, 0, 0.88)',
+        background: 'rgba(0, 0, 0, 0.82)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         display: 'flex',
@@ -37,6 +53,7 @@ export default function LanguageModal({ currentLang, onSelectLanguage }) {
     >
       <div 
         className="glass-panel animate-fade-in"
+        onClick={(e) => e.stopPropagation()}
         style={{
           width: '100%',
           maxWidth: '520px',
@@ -45,9 +62,33 @@ export default function LanguageModal({ currentLang, onSelectLanguage }) {
           padding: '2.25rem 2rem',
           textAlign: 'center',
           border: '2px solid var(--accent-gold)',
-          boxShadow: '0 25px 60px rgba(0,0,0,0.9)'
+          boxShadow: '0 25px 60px rgba(0,0,0,0.9)',
+          position: 'relative'
         }}
       >
+        <button
+          onClick={handleClose}
+          type="button"
+          aria-label="Close"
+          style={{
+            position: 'absolute',
+            top: '1rem',
+            right: '1rem',
+            width: '36px',
+            height: '36px',
+            borderRadius: '50%',
+            background: 'var(--bg-secondary)',
+            border: '1px solid var(--border-color)',
+            color: 'var(--text-secondary)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer'
+          }}
+        >
+          <X size={18} />
+        </button>
+
         <div 
           style={{
             width: '58px',

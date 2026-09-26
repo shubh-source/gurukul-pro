@@ -4,15 +4,13 @@ import { Sun, Moon, Search, Menu, X, Sparkles, BookOpen, GraduationCap, Phone, C
 
 export default function Navbar({ activePage, setActivePage, theme, toggleTheme, lang, onToggleLang, onOpenSearch }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchHovered, setIsSearchHovered] = useState(false);
-  const hoverTimeoutRef = useRef(null);
-
   const isEn = lang === 'en';
 
   const navItems = [
     { id: 'home', label: isEn ? 'Home Page' : 'मुख्य पृष्ठ', desc: isEn ? 'Institute introduction & overview of activities' : 'संस्थान परिचय एवं गतिविधियों का विहंगम अवलोकन', icon: Compass },
     { id: 'about', label: isEn ? 'About Us' : 'हमारे बारे में', desc: isEn ? 'History, objectives and Guru Parampara' : 'संस्थान का इतिहास, उद्देश्य एवं गुरु परंपरा', icon: Shield },
     { id: 'gurukul', label: isEn ? 'Gurukul' : 'गुरुकुल', desc: isEn ? 'Sanskrit education, Vedas & daily routine' : 'संस्कृत शिक्षा, वेद-शास्त्र, आवासीय एवं दिनचर्या', icon: BookOpen },
+    { id: 'academics', label: isEn ? 'Curriculum & Vedic STEM' : 'पाठ्यक्रम एवं वेद-विज्ञान', desc: isEn ? 'Vedic Maths, Quantum AI, Ayurveda & Yoga' : 'वैदिक गणित, एआई रोबोटिक्स, आयुर्वेद एवं योग', icon: Sparkles },
     { id: 'gaushala', label: isEn ? 'Gaushala (Cowshed)' : 'गौशाला', desc: isEn ? 'Cow protection, care and Gau Daan' : 'गौसेवा, संरक्षण, संवर्धन एवं गौ दान', icon: Heart },
     { id: 'research', label: isEn ? 'Research' : 'अनुसंधान', desc: isEn ? 'Indian Knowledge Systems & Sanskrit studies' : 'भारतीय ज्ञान परंपरा एवं संस्कृत साहित्य अध्ययन', icon: Sparkles },
     { id: 'sanskar', label: isEn ? 'Rites & Rituals' : 'संस्कार एवं अनुष्ठान', desc: isEn ? 'Rudrabhishek, Yagya, Marriage & Puja' : 'रुद्राभिषेक, हवन, यज्ञ, विवाह एवं पूजन', icon: Flame },
@@ -26,40 +24,31 @@ export default function Navbar({ activePage, setActivePage, theme, toggleTheme, 
 
   const handleNavClick = (id) => {
     setIsMenuOpen(false);
-    setActivePage(id);
-  };
-
-  const handleMouseEnter = () => {
-    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    setIsMenuOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    hoverTimeoutRef.current = setTimeout(() => {
-      setIsMenuOpen(false);
-    }, 180);
+    if (typeof setActivePage === 'function') {
+      setActivePage(id);
+    }
   };
 
   // Lock body background scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
+      const prevOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
     }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
   }, [isMenuOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') setIsMenuOpen(false);
     };
-    window.addEventListener('keydown', handleKeyDown);
+    if (isMenuOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -239,76 +228,71 @@ export default function Navbar({ activePage, setActivePage, theme, toggleTheme, 
               {isEn ? 'Admission Form' : 'प्रवेश आवेदन'}
             </button>
 
-            {/* Hover-activated Hamburger Menu Button */}
-            <div
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              style={{ display: 'inline-block' }}
+            {/* Click-activated Hamburger Menu Button */}
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(prev => !prev)}
+              aria-expanded={isMenuOpen}
+              aria-label={isEn ? "Toggle Navigation Menu" : "नेविगेशन मेन्यू"}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                padding: '0.55rem 1rem',
+                borderRadius: 'var(--radius-full)',
+                background: isMenuOpen ? 'var(--accent-gold)' : 'var(--bg-secondary)',
+                border: '1px solid var(--border-glow)',
+                color: isMenuOpen ? '#0f0d0e' : 'var(--accent-gold)',
+                fontWeight: '700',
+                fontSize: '0.9rem',
+                cursor: 'pointer',
+                touchAction: 'manipulation',
+                transition: 'background 0.3s ease, color 0.3s ease, border-color 0.3s ease',
+                boxShadow: 'var(--shadow-sm)'
+              }}
             >
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                  padding: '0.55rem 1rem',
-                  borderRadius: 'var(--radius-full)',
-                  background: isMenuOpen ? 'var(--accent-gold)' : 'var(--bg-secondary)',
-                  border: '1px solid var(--border-glow)',
-                  color: isMenuOpen ? '#0f0d0e' : 'var(--accent-gold)',
-                  fontWeight: '700',
-                  fontSize: '0.9rem',
-                  cursor: 'pointer',
-                  transition: 'background 0.4s ease, color 0.4s ease, border-color 0.4s ease',
-                  boxShadow: 'var(--shadow-sm)'
-                }}
-              >
-                <Menu size={22} />
-                <span>{isEn ? 'Menu' : 'मेन्यू'}</span>
-              </button>
-            </div>
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              <span>{isEn ? 'Menu' : 'मेन्यू'}</span>
+            </button>
           </div>
         </div>
       </header>
 
-      {/* ALWAYS MOUNTED HOVER DRAWER WITH SCROLL LOCK & SCROLLABLE CONTENT */}
+      {/* NAVIGATION DRAWER & BACKDROP */}
       <div 
-        onMouseEnter={() => setIsMenuOpen(false)}
         style={{
           position: 'fixed',
           inset: 0,
           zIndex: 9999,
-          background: 'rgba(0, 0, 0, 0.65)',
-          backdropFilter: isMenuOpen ? 'blur(16px)' : 'blur(0px)',
-          WebkitBackdropFilter: isMenuOpen ? 'blur(16px)' : 'blur(0px)',
+          background: 'rgba(0, 0, 0, 0.72)',
+          backdropFilter: isMenuOpen ? 'blur(10px)' : 'none',
+          WebkitBackdropFilter: isMenuOpen ? 'blur(10px)' : 'none',
           opacity: isMenuOpen ? 1 : 0,
+          visibility: isMenuOpen ? 'visible' : 'hidden',
           pointerEvents: isMenuOpen ? 'auto' : 'none',
           display: 'flex',
           justifyContent: 'flex-end',
-          transition: 'opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), backdrop-filter 0.55s cubic-bezier(0.22, 1, 0.36, 1), -webkit-backdrop-filter 0.55s cubic-bezier(0.22, 1, 0.36, 1)'
+          transition: 'opacity 0.35s ease, visibility 0.35s ease'
         }}
         onClick={() => setIsMenuOpen(false)}
       >
         <div 
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
           style={{
             width: '100%',
             maxWidth: '480px',
-            height: '100vh',
+            height: '100%',
             maxHeight: '100vh',
             background: 'var(--bg-primary)',
             borderLeft: '1px solid var(--accent-gold)',
-            borderTopLeftRadius: '28px',
-            borderBottomLeftRadius: '28px',
-            boxShadow: '-10px 0 30px rgba(0, 0, 0, 0.5)',
+            boxShadow: '-10px 0 35px rgba(0, 0, 0, 0.6)',
             display: 'flex',
             flexDirection: 'column',
-            padding: '2rem 1.75rem',
+            padding: '1.75rem 1.5rem',
             overflowY: 'auto',
+            WebkitOverflowScrolling: 'touch',
             position: 'relative',
             transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
-            transition: 'transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)'
+            transition: 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)'
           }}
           onClick={(e) => e.stopPropagation()}
         >
@@ -325,6 +309,8 @@ export default function Navbar({ activePage, setActivePage, theme, toggleTheme, 
             </div>
 
             <button 
+              type="button"
+              aria-label="Close Menu"
               onClick={() => setIsMenuOpen(false)}
               style={{
                 width: '38px',
@@ -349,22 +335,27 @@ export default function Navbar({ activePage, setActivePage, theme, toggleTheme, 
               const IconComponent = item.icon;
               const isActive = activePage === item.id;
               return (
-                <div
+                <button
+                  type="button"
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
                   style={{
-                    padding: '0.75rem 0.95rem',
+                    width: '100%',
+                    textAlign: 'left',
+                    padding: '0.8rem 1rem',
                     borderRadius: 'var(--radius-md)',
-                    background: isActive ? 'rgba(212, 175, 55, 0.15)' : 'var(--bg-secondary)',
+                    background: isActive ? 'rgba(212, 175, 55, 0.18)' : 'var(--bg-secondary)',
                     border: isActive ? '1px solid var(--accent-gold)' : '1px solid var(--border-color)',
                     cursor: 'pointer',
+                    touchAction: 'manipulation',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    transition: 'var(--transition)'
+                    transition: 'background 0.2s ease, border-color 0.2s ease',
+                    color: 'var(--text-primary)'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', pointerEvents: 'none' }}>
                     <div 
                       style={{
                         width: '34px',
@@ -382,14 +373,14 @@ export default function Navbar({ activePage, setActivePage, theme, toggleTheme, 
                       <IconComponent size={17} />
                     </div>
                     <div>
-                      <h4 style={{ fontSize: '0.95rem', fontWeight: isActive ? '800' : '700', color: isActive ? 'var(--accent-gold)' : 'var(--text-primary)' }}>
+                      <h4 style={{ fontSize: '0.95rem', fontWeight: isActive ? '800' : '700', color: isActive ? 'var(--accent-gold)' : 'var(--text-primary)', margin: 0, lineHeight: 1.3 }}>
                         {item.label}
                       </h4>
-                      <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{item.desc}</p>
+                      <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', margin: '2px 0 0 0', lineHeight: 1.3 }}>{item.desc}</p>
                     </div>
                   </div>
-                  <ArrowRight size={15} style={{ color: isActive ? 'var(--accent-gold)' : 'var(--text-muted)' }} />
-                </div>
+                  <ArrowRight size={16} style={{ color: isActive ? 'var(--accent-gold)' : 'var(--text-muted)', flexShrink: 0, pointerEvents: 'none' }} />
+                </button>
               );
             })}
           </div>

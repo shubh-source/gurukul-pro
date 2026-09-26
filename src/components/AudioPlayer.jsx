@@ -77,26 +77,11 @@ export default function AudioPlayer() {
   };
 
   useEffect(() => {
-    // Attempt automatic start on website open
-    startCalmTune();
-
-    // Browser autoplay policy fallback: start audio on first user click/scroll anywhere on page
-    const handleFirstInteraction = () => {
-      if (!hasStartedRef.current || audioCtxRef.current?.state === 'suspended') {
-        startCalmTune();
-      }
-    };
-
-    window.addEventListener('click', handleFirstInteraction, { once: true });
-    window.addEventListener('touchstart', handleFirstInteraction, { once: true });
-    window.addEventListener('scroll', handleFirstInteraction, { once: true });
-
     return () => {
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('touchstart', handleFirstInteraction);
-      window.removeEventListener('scroll', handleFirstInteraction);
       if (audioCtxRef.current) {
-        audioCtxRef.current.close();
+        try {
+          audioCtxRef.current.close();
+        } catch(e) {}
       }
     };
   }, []);
