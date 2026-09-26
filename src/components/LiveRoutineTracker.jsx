@@ -45,8 +45,9 @@ export default function LiveRoutineTracker({ lang }) {
       style={{
         padding: '1.25rem 1.5rem',
         borderRadius: 'var(--radius-md)',
-        background: 'linear-gradient(135deg, rgba(28, 24, 27, 0.95) 0%, rgba(45, 30, 20, 0.95) 100%)',
-        border: '1px solid var(--accent-gold)',
+        background: 'linear-gradient(135deg, #ffffff 0%, #fbf6ec 100%)',
+        border: '2px solid rgba(212, 175, 55, 0.4)',
+        boxShadow: '0 8px 24px rgba(197, 155, 39, 0.15)',
         marginBottom: '2.5rem',
         display: 'flex',
         alignItems: 'center',
@@ -57,9 +58,10 @@ export default function LiveRoutineTracker({ lang }) {
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
         <div 
+          className="pro-float"
           style={{
-            width: '46px',
-            height: '46px',
+            width: '48px',
+            height: '48px',
             borderRadius: '50%',
             background: 'rgba(212, 175, 55, 0.18)',
             border: '1px solid var(--accent-gold)',
@@ -80,8 +82,8 @@ export default function LiveRoutineTracker({ lang }) {
                 width: '8px',
                 height: '8px',
                 borderRadius: '50%',
-                background: '#4caf50',
-                boxShadow: '0 0 10px #4caf50',
+                background: '#2e7d32',
+                boxShadow: '0 0 10px rgba(46, 125, 50, 0.6)',
                 display: 'inline-block'
               }}
             />
@@ -90,7 +92,7 @@ export default function LiveRoutineTracker({ lang }) {
             </span>
           </div>
 
-          <h4 className="font-serif" style={{ fontSize: '1.05rem', fontWeight: '800', color: '#fff' }}>
+          <h4 className="font-serif" style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--text-primary)' }}>
             {isEn ? activeRoutine.titleEn : activeRoutine.titleHi}
           </h4>
         </div>
@@ -101,13 +103,13 @@ export default function LiveRoutineTracker({ lang }) {
           display: 'flex',
           alignItems: 'center',
           gap: '0.6rem',
-          padding: '0.4rem 0.85rem',
+          padding: '0.45rem 1rem',
           borderRadius: 'var(--radius-full)',
-          background: 'rgba(0, 0, 0, 0.4)',
+          background: 'rgba(212, 175, 55, 0.15)',
           border: '1px solid var(--border-color)',
           fontSize: '0.85rem',
           fontWeight: '800',
-          color: 'var(--accent-gold)'
+          color: 'var(--accent-gold-hover)'
         }}
       >
         <Clock size={16} />

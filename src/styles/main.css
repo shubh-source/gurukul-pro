@@ -74,7 +74,7 @@ button {
   background: none;
 }
 
-/* Glassmorphism & Card Utils (Standard Version — Clean Static Hover) */
+/* Glassmorphism & Card Utils (Pro Version — Premium Interactive Hover, Lift & Elevation) */
 .glass-panel {
   background: var(--bg-glass);
   backdrop-filter: blur(16px);
@@ -82,11 +82,13 @@ button {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  transition: var(--transition);
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.35s ease;
 }
 
 .glass-panel:hover {
+  transform: translateY(-6px);
   border-color: var(--accent-gold);
+  box-shadow: 0 16px 36px rgba(197, 155, 39, 0.22), 0 0 20px rgba(212, 175, 55, 0.15);
 }
 
 .gold-gradient-text {
@@ -102,15 +104,15 @@ button {
   padding: 0.85rem 1.75rem;
   border-radius: var(--radius-full);
   box-shadow: 0 4px 16px rgba(216, 67, 21, 0.35);
-  transition: var(--transition);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, filter 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .saffron-gradient-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(216, 67, 21, 0.5);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(216, 67, 21, 0.45);
 }
 
 .gold-outline-btn {
@@ -119,7 +121,7 @@ button {
   font-weight: 700;
   padding: 0.8rem 1.6rem;
   border-radius: var(--radius-full);
-  transition: var(--transition);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -128,7 +130,8 @@ button {
 .gold-outline-btn:hover {
   background: var(--accent-gold);
   color: #0f0d0e;
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(197, 155, 39, 0.35);
 }
 
 /* Page Container Layout */
@@ -150,23 +153,43 @@ button {
   padding: 0 1.5rem;
 }
 
-/* Smooth Fade In with Zero Vertical Shift */
+/* Smooth Pro Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-  50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); }
+  0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.25); }
+  50% { box-shadow: 0 0 35px rgba(212, 175, 55, 0.65); }
+}
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.25s ease-out forwards;
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .pulse-glow {
-  animation: pulseGlow 3s infinite ease-in-out;
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+.pro-float {
+  animation: floatBadge 3.5s ease-in-out infinite;
+}
+
+.pro-shimmer-badge {
+  background: linear-gradient(90deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.32) 50%, rgba(212,175,55,0.12) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
 }
 
 /* Section Header */

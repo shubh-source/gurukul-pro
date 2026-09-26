@@ -5,6 +5,7 @@ import SocialFloating from './components/SocialFloating';
 import AudioPlayer from './components/AudioPlayer';
 import SearchModal from './components/SearchModal';
 import LanguageModal from './components/LanguageModal';
+import WelcomeModal from './components/WelcomeModal';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -116,6 +117,7 @@ export default function App() {
 
   return (
     <div className="page-container">
+      <WelcomeModal onNavigate={handlePageChange} lang={lang} />
       <LanguageModal currentLang={lang} onSelectLanguage={(l) => setLang(l)} />
 
       <Navbar
