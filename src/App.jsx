@@ -52,21 +52,19 @@ const getPageFromHash = () => {
 export default function App() {
   const [activePage, setActivePage] = useState(() => getPageFromHash());
 
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('gurukul_theme') || 'dark';
-  });
-
   const [lang, setLang] = useState(() => {
     return localStorage.getItem('gurukul_lang') || 'hi';
   });
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  // Sync theme with HTML attribute
+  // Enforce pure light theme
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('gurukul_theme', theme);
-  }, [theme]);
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.style.backgroundColor = '#fdfbf7';
+    document.documentElement.style.color = '#1c1917';
+    localStorage.setItem('gurukul_theme', 'light');
+  }, []);
 
   // Sync language with HTML lang attribute
   useEffect(() => {
@@ -91,10 +89,6 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
-
-  const toggleTheme = () => {
-    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
-  };
 
   const toggleLang = () => {
     const nextLang = lang === 'hi' ? 'en' : 'hi';
@@ -127,8 +121,6 @@ export default function App() {
       <Navbar
         activePage={activePage}
         setActivePage={handlePageChange}
-        theme={theme}
-        toggleTheme={toggleTheme}
         lang={lang}
         onToggleLang={toggleLang}
         onOpenSearch={() => setIsSearchOpen(true)}

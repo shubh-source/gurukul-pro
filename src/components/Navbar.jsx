@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Images } from '../assets/images';
-import { Sun, Moon, Search, Menu, X, Sparkles, BookOpen, GraduationCap, Phone, Calendar, Compass, Shield, ArrowRight, Heart, Flame, Compass as JyotishIcon, Image, Bell, Newspaper, Award, Flag, Globe } from 'lucide-react';
+import { Search, Menu, X, Sparkles, BookOpen, GraduationCap, Phone, Calendar, Compass, Shield, ArrowRight, Heart, Flame, Compass as JyotishIcon, Image, Bell, Newspaper, Award, Flag, Globe } from 'lucide-react';
 
-export default function Navbar({ activePage, setActivePage, theme, toggleTheme, lang, onToggleLang, onOpenSearch }) {
+export default function Navbar({ activePage, setActivePage, lang, onToggleLang, onOpenSearch }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isEn = lang === 'en';
 
@@ -198,26 +198,6 @@ export default function Navbar({ activePage, setActivePage, theme, toggleTheme, 
                 </span>
               </button>
             </div>
-
-            {/* Theme Switcher */}
-            <button
-              onClick={toggleTheme}
-              title={theme === 'dark' ? "Gold Light Theme" : "Dark Ashram Theme"}
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                border: '1px solid var(--border-color)',
-                background: 'var(--bg-secondary)',
-                color: 'var(--accent-gold)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'var(--transition)'
-              }}
-            >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
 
             {/* Admission CTA */}
             <button

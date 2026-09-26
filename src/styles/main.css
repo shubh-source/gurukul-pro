@@ -38,34 +38,6 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[data-theme="dark"] {
-  /* Dark Theme ("Chandra Ashram Dark") */
-  --bg-primary: #0f0d0e;
-  --bg-secondary: #181517;
-  --bg-card: rgba(28, 24, 27, 0.88);
-  --bg-glass: rgba(24, 20, 23, 0.82);
-  --border-color: rgba(212, 175, 55, 0.25);
-  --border-glow: rgba(212, 175, 55, 0.65);
-  
-  --text-primary: #f5f2eb;
-  --text-secondary: #d6cfc4;
-  --text-muted: #a39c90;
-  
-  --accent-gold: #e5b839;
-  --accent-gold-hover: #ffd54f;
-  --accent-saffron: #ff7043;
-  --accent-vermillion: #ef5350;
-  --accent-saffron-light: rgba(230, 81, 0, 0.18);
-  --accent-emerald: #4caf50;
-  --accent-emerald-light: rgba(27, 94, 32, 0.22);
-  --accent-indigo: #7986cb;
-  --accent-indigo-light: rgba(40, 53, 147, 0.22);
-  
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.65);
-}
-
 * {
   margin: 0;
   padding: 0;

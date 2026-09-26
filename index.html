@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi" translate="no" class="notranslate" style="background-color: #0f0d0e; color: #f5f2eb;">
+<html lang="hi" translate="no" class="notranslate" data-theme="light" style="background-color: #fdfbf7; color: #1c1917;">
   <head>
     <meta charset="UTF-8" />
     <meta name="google" content="notranslate" />
@@ -8,19 +8,14 @@
     <title>श्री आत्मानन्द संस्कृत शिक्षण संस्थान | नैमिषारण्य, सीतापुर (उ.प्र.)</title>
     <meta name="description" content="श्री आत्मानन्द संस्कृत शिक्षण संस्थान - नैमिषारण्य, सीतापुर। संस्कृत शिक्षा, वेद-शास्त्र, गुरुकुल परंपरा, गौशाला गौसेवा, संस्कार एवं धार्मिक अनुष्ठान।" />
     
-    <!-- Instant Anti-Flash Theme Initializer -->
+    <!-- Permanent Pure Light Theme Initializer -->
     <script>
       (function() {
         try {
-          var savedTheme = localStorage.getItem('gurukul_theme') || 'dark';
-          document.documentElement.setAttribute('data-theme', savedTheme);
-          if (savedTheme === 'dark') {
-            document.documentElement.style.backgroundColor = '#0f0d0e';
-            document.documentElement.style.color = '#f5f2eb';
-          } else {
-            document.documentElement.style.backgroundColor = '#fdfbf7';
-            document.documentElement.style.color = '#1c1917';
-          }
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.documentElement.style.backgroundColor = '#fdfbf7';
+          document.documentElement.style.color = '#1c1917';
+          localStorage.setItem('gurukul_theme', 'light');
         } catch (e) {}
       })();
     </script>
@@ -30,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
   </head>
-  <body class="notranslate" style="background-color: #0f0d0e; color: #f5f2eb; margin: 0; padding: 0;">
+  <body class="notranslate" style="background-color: #fdfbf7; color: #1c1917; margin: 0; padding: 0;">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
