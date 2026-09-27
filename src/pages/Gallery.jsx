@@ -2,22 +2,31 @@ import React, { useState } from 'react';
 import { Images } from '../assets/images';
 import { X, Image as ImageIcon } from 'lucide-react';
 
-const GALLERY_ITEMS = [
-  { id: '1', title: 'पावन गुरुकुल परिसर एवं वेद पाठ', category: 'Gurukul', img: Images.atmanandHero },
-  { id: '2', title: 'गौशाला में देशी गिर गौसेवा', category: 'Gaushala', img: Images.gaushala },
-  { id: '3', title: 'वैदिक महायज्ञ एवं हवन अनुष्ठान', category: 'Sanskar', img: Images.yagya },
-  { id: '4', title: 'गुरु शिष्य परंपरा एवं वेदांत अध्ययन', category: 'Students', img: Images.guruParampara },
-  { id: '5', title: 'योग, प्राणायाम एवं सूर्य नमस्कार', category: 'Gurukul', img: Images.yogaMeditation },
-  { id: '6', title: 'वैदिक STEM एवं कंप्यूटर शिक्षा', category: 'Students', img: Images.stemVedicLab },
-  { id: '7', title: 'नैमिषारण्य गुरुकुल मुख्य द्वार', category: 'Campus', img: Images.heroCampus },
-  { id: '8', title: 'प्रातःकालीन यज्ञ एवं गायत्री जाप', category: 'Events', img: Images.yagya }
-];
-
-const CATEGORIES = ['All', 'Gurukul', 'Students', 'Gaushala', 'Sanskar', 'Events', 'Campus'];
-
-export default function Gallery({ onNavigate }) {
+export default function Gallery({ onNavigate, lang }) {
+  const isEn = lang === 'en';
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const CATEGORIES = [
+    { key: 'All', label: isEn ? 'All' : 'सभी' },
+    { key: 'Gurukul', label: isEn ? 'Gurukul' : 'गुरुकुल' },
+    { key: 'Students', label: isEn ? 'Students' : 'विद्यार्थी' },
+    { key: 'Gaushala', label: isEn ? 'Gaushala' : 'गौशाला' },
+    { key: 'Sanskar', label: isEn ? 'Samskara' : 'संस्कार' },
+    { key: 'Events', label: isEn ? 'Events' : 'उत्सव' },
+    { key: 'Campus', label: isEn ? 'Campus' : 'परिसर' }
+  ];
+
+  const GALLERY_ITEMS = [
+    { id: '1', title: isEn ? 'Sacred Gurukul Campus & Veda Recitation' : 'पावन गुरुकुल परिसर एवं वेद पाठ', category: 'Gurukul', categoryLabel: isEn ? 'Gurukul' : 'गुरुकुल', img: Images.atmanandHero },
+    { id: '2', title: isEn ? 'Indigenous Gir Cow Protection in Gaushala' : 'गौशाला में देशी गिर गौसेवा', category: 'Gaushala', categoryLabel: isEn ? 'Gaushala' : 'गौशाला', img: Images.gaushala },
+    { id: '3', title: isEn ? 'Vedic Maha Yagya & Havan Ceremonies' : 'वैदिक महायज्ञ एवं हवन अनुष्ठान', category: 'Sanskar', categoryLabel: isEn ? 'Samskara' : 'संस्कार', img: Images.yagya },
+    { id: '4', title: isEn ? 'Guru-Shishya Tradition & Vedanta Discourse' : 'गुरु शिष्य परंपरा एवं वेदांत अध्ययन', category: 'Students', categoryLabel: isEn ? 'Students' : 'विद्यार्थी', img: Images.guruParampara },
+    { id: '5', title: isEn ? 'Yoga, Pranayama & Surya Namaskar Practice' : 'योग, प्राणायाम एवं सूर्य नमस्कार', category: 'Gurukul', categoryLabel: isEn ? 'Gurukul' : 'गुरुकुल', img: Images.yogaMeditation },
+    { id: '6', title: isEn ? 'Vedic STEM & Modern Computer Science Lab' : 'वैदिक STEM एवं कंप्यूटर शिक्षा', category: 'Students', categoryLabel: isEn ? 'Students' : 'विद्यार्थी', img: Images.stemVedicLab },
+    { id: '7', title: isEn ? 'Naimisharanya Gurukul Main Entrance Gate' : 'नैमिषारण्य गुरुकुल मुख्य द्वार', category: 'Campus', categoryLabel: isEn ? 'Campus' : 'परिसर', img: Images.heroCampus },
+    { id: '8', title: isEn ? 'Morning Agnihotra & Gayatri Mantra Chanting' : 'प्रातःकालीन यज्ञ एवं गायत्री जाप', category: 'Events', categoryLabel: isEn ? 'Events' : 'उत्सव', img: Images.yagya }
+  ];
 
   const filteredItems = activeCategory === 'All'
     ? GALLERY_ITEMS
@@ -29,10 +38,12 @@ export default function Gallery({ onNavigate }) {
       {/* Header Banner */}
       <section style={{ padding: '4rem 0 3rem 0', background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
-          <span className="section-tag">चित्रमय झलकियाँ</span>
-          <h1 className="section-title font-serif">संस्थान चित्रदीर्घा (Gallery)</h1>
+          <span className="section-tag">{isEn ? 'Pictorial Glimpses' : 'चित्रमय झलकियाँ'}</span>
+          <h1 className="section-title font-serif">{isEn ? 'Sansthan Photo Gallery' : 'संस्थान चित्रदीर्घा (Gallery)'}</h1>
           <p className="section-subtitle">
-            गुरुकुल परिसर, वेद अध्ययन, गौसेवा एवं धार्मिक आयोजनों की सुंदर तस्वीरें।
+            {isEn 
+              ? 'Beautiful moments of Gurukul campus, Vedic studies, cow seva, and sacred cultural celebrations.'
+              : 'गुरुकुल परिसर, वेद अध्ययन, गौसेवा एवं धार्मिक आयोजनों की सुंदर तस्वीरें।'}
           </p>
         </div>
       </section>
@@ -45,13 +56,13 @@ export default function Gallery({ onNavigate }) {
           <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
             {CATEGORIES.map(cat => (
               <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
+                key={cat.key}
+                onClick={() => setActiveCategory(cat.key)}
                 style={{
                   padding: '0.5rem 1.25rem',
                   borderRadius: 'var(--radius-full)',
-                  background: activeCategory === cat ? 'var(--accent-gold)' : 'var(--bg-secondary)',
-                  color: activeCategory === cat ? '#0f0d0e' : 'var(--text-primary)',
+                  background: activeCategory === cat.key ? 'var(--accent-gold)' : 'var(--bg-secondary)',
+                  color: activeCategory === cat.key ? '#0f0d0e' : 'var(--text-primary)',
                   fontWeight: '700',
                   border: '1px solid var(--border-color)',
                   cursor: 'pointer',
@@ -59,7 +70,7 @@ export default function Gallery({ onNavigate }) {
                   transition: 'var(--transition)'
                 }}
               >
-                {cat}
+                {cat.label}
               </button>
             ))}
           </div>
@@ -80,7 +91,7 @@ export default function Gallery({ onNavigate }) {
               >
                 <img src={item.img} alt={item.title} style={{ width: '100%', height: '220px', objectFit: 'cover', display: 'block' }} />
                 <div style={{ padding: '1rem' }}>
-                  <span className="badge-gold" style={{ fontSize: '0.7rem' }}>{item.category}</span>
+                  <span className="badge-gold" style={{ fontSize: '0.7rem' }}>{item.categoryLabel}</span>
                   <h4 className="font-serif" style={{ fontSize: '1rem', fontWeight: '700', marginTop: '0.4rem', color: 'var(--text-primary)' }}>
                     {item.title}
                   </h4>

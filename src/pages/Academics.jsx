@@ -2,78 +2,117 @@ import React, { useState } from 'react';
 import { Images } from '../assets/images';
 import { BookOpen, Search, Code, Cpu, Activity, Award, CheckCircle2, ChevronRight, X } from 'lucide-react';
 
-const COURSES = [
-  {
-    id: 'c1',
-    category: 'Vedic STEM',
-    title: 'Vedic Mathematics & Binary Algorithms',
-    grade: 'Class VI - XII',
-    instructor: 'Acharya Dr. Devavrat Shastri',
-    duration: 'Full Academic Year',
-    image: Images.stemVedicLab,
-    description: 'Learn the 16 Sutras of Vedic Math for high-speed mental calculations, matrix manipulation, and Pingala binary prosody applied to modern computer science.',
-    syllabus: [
-      'Ekadhikena Purvena Sutra for Instant Multiplications',
-      'Pingala Chhandas & Binary Number Representation',
-      'Vedic Trignometry & Astronomical Geometry',
-      'Algorithmic Complexity Optimization'
-    ]
-  },
-  {
-    id: 'c2',
-    category: 'AI & Robotics',
-    title: 'Quantum Artificial Intelligence & Ethics',
-    grade: 'Class VIII - XII',
-    instructor: 'Dr. Ananya Vedant',
-    duration: 'Full Academic Year',
-    image: Images.heroCampus,
-    description: 'Hands-on Python, neural networks, robotics building, and Upaniṣadic ethics in Autonomous Systems.',
-    syllabus: [
-      'Fundamentals of Python & Linear Algebra',
-      'Neural Networks & Computer Vision Labs',
-      'Autonomous Robotics Assembly',
-      'Dharmic Ethics in AI & Consciousness Studies'
-    ]
-  },
-  {
-    id: 'c3',
-    category: 'Yogic Science',
-    title: 'Pranayama, Meditation & Marma Mastery',
-    grade: 'All Grades',
-    instructor: 'Yogacharya Swami Prakashananda',
-    duration: 'Daily Sadhana',
-    image: Images.yogaMeditation,
-    description: 'Comprehensive physical, mental, and bio-energetic training through Patanjali Yoga Sutras and Kalaripayattu body discipline.',
-    syllabus: [
-      'Asana Alignment & Spine Health',
-      'Pranayama Techniques for Cognitive Focus',
-      'Trataka & Mind Concentration Mastery',
-      'Marma Vital Points & Physical Self-Defense'
-    ]
-  },
-  {
-    id: 'c4',
-    category: 'Ayurveda & Bio-Sciences',
-    title: 'Herbal Medicine, Botany & Organic Agriculture',
-    grade: 'Class VII - XII',
-    instructor: 'Dr. Rajeshwari Sharma',
-    duration: 'Full Academic Year',
-    image: Images.library,
-    description: 'Plant taxonomy, soil microbiology, medicinal herb extraction, and Gaushala eco-sustainability.',
-    syllabus: [
-      'Identification of 100+ Medicinal Flora',
-      'Organic Farm Soil Microbiology',
-      'Panchagavya & Natural Bio-Fertilizers',
-      'Ayurvedic Preventive Nutrition'
-    ]
-  }
-];
-
-export default function Academics({ onNavigate }) {
+export default function Academics({ onNavigate, lang }) {
+  const isEn = lang === 'en';
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeCourseModal, setActiveCourseModal] = useState(null);
 
-  const categories = ['All', 'Vedic STEM', 'AI & Robotics', 'Yogic Science', 'Ayurveda & Bio-Sciences'];
+  const COURSES = [
+    {
+      id: 'c1',
+      category: 'Vedic STEM',
+      categoryLabel: isEn ? 'Vedic STEM' : 'वैदिक STEM',
+      title: isEn ? 'Vedic Mathematics & Binary Algorithms' : 'वैदिक गणित एवं बाइनरी एल्गोरिदम',
+      grade: isEn ? 'Class VI - XII' : 'कक्षा 6 - 12',
+      instructor: isEn ? 'Acharya Dr. Devavrat Shastri' : 'आचार्य डॉ. देवव्रत शास्त्री',
+      duration: isEn ? 'Full Academic Year' : 'सम्पूर्ण शैक्षणिक सत्र',
+      image: Images.stemVedicLab,
+      description: isEn 
+        ? 'Learn the 16 Sutras of Vedic Math for high-speed mental calculations, matrix manipulation, and Pingala binary prosody applied to modern computer science.'
+        : 'तीव्र मानसिक गणनाओं के लिए वैदिक गणित के 16 सूत्र, पिङ्गल छन्द शास्त्र आधारित द्वि-आधारी (बाइनरी) पद्धति एवं कंप्यूटर विज्ञान अनुप्रयोग।',
+      syllabus: isEn ? [
+        'Ekadhikena Purvena Sutra for Instant Multiplications',
+        'Pingala Chhandas & Binary Number Representation',
+        'Vedic Trigonometry & Astronomical Geometry',
+        'Algorithmic Complexity Optimization'
+      ] : [
+        'एकाधिकेन पूर्वेण सूत्र द्वारा द्रुत गति गुणन',
+        'पिङ्गल छन्द शास्त्र एवं बाइनरी अंक प्रणाली',
+        'वैदिक त्रिकोणमिति एवं खगोलीय ज्यामिति',
+        'एल्गोरिदम जटिलता न्यूनीकरण विधि'
+      ]
+    },
+    {
+      id: 'c2',
+      category: 'AI & Robotics',
+      categoryLabel: isEn ? 'AI & Robotics' : 'AI एवं रोबोटिक्स',
+      title: isEn ? 'Quantum Artificial Intelligence & Ethics' : 'क्वांटम आर्टिफिशियल इंटेलिजेंस एवं आचारशास्त्र',
+      grade: isEn ? 'Class VIII - XII' : 'कक्षा 8 - 12',
+      instructor: isEn ? 'Dr. Ananya Vedant' : 'डॉ. अनन्या वेदांत',
+      duration: isEn ? 'Full Academic Year' : 'सम्पूर्ण शैक्षणिक सत्र',
+      image: Images.heroCampus,
+      description: isEn 
+        ? 'Hands-on Python, neural networks, robotics building, and Upanishadic ethics in Autonomous Systems.'
+        : 'पायथन कोडिंग, न्यूरल नेटवर्क, रोबोटिक्स निर्माण तथा स्वायत्त प्रणालियों में उपनिषद् आधारित नैतिक मूल्य।',
+      syllabus: isEn ? [
+        'Fundamentals of Python & Linear Algebra',
+        'Neural Networks & Computer Vision Labs',
+        'Autonomous Robotics Assembly',
+        'Dharmic Ethics in AI & Consciousness Studies'
+      ] : [
+        'पायथन प्रोग्रामिंग एवं रैखिक बीजगणित',
+        'न्यूरल नेटवर्क एवं कंप्यूटर विजन प्रयोगशाला',
+        'स्वायत्त रोबोटिक्स संरचना व प्रोग्रामिंग',
+        'AI में नैतिक मूल्य एवं चेतना अध्ययन'
+      ]
+    },
+    {
+      id: 'c3',
+      category: 'Yogic Science',
+      categoryLabel: isEn ? 'Yogic Science' : 'योग विज्ञान',
+      title: isEn ? 'Pranayama, Meditation & Marma Mastery' : 'प्राणायाम, ध्यान एवं मर्म चिकित्सा',
+      grade: isEn ? 'All Grades' : 'समस्त कक्षाएं',
+      instructor: isEn ? 'Yogacharya Swami Prakashananda' : 'योगाचार्य स्वामी प्रकाशानन्द',
+      duration: isEn ? 'Daily Sadhana' : 'दैनिक साधना',
+      image: Images.yogaMeditation,
+      description: isEn 
+        ? 'Comprehensive physical, mental, and bio-energetic training through Patanjali Yoga Sutras and body discipline.'
+        : 'पातञ्जल योगसूत्रों के आधार पर शारीरिक, मानसिक एवं प्राणिक संतुलन, ध्यान एवं आत्मरक्षा अभ्यास।',
+      syllabus: isEn ? [
+        'Asana Alignment & Spine Health',
+        'Pranayama Techniques for Cognitive Focus',
+        'Trataka & Mind Concentration Mastery',
+        'Marma Vital Points & Physical Self-Defense'
+      ] : [
+        'योगासन संरेखण एवं मेरुदण्ड स्वास्थ्य',
+        'एकाग्रता संवर्धन हेतु प्राणायाम विधियां',
+        'त्राटक क्रिया एवं ध्यान साधना',
+        'मर्म स्थान विज्ञान एवं आत्मरक्षा'
+      ]
+    },
+    {
+      id: 'c4',
+      category: 'Ayurveda & Bio-Sciences',
+      categoryLabel: isEn ? 'Ayurveda & Bio-Sciences' : 'आयुर्वेद एवं जैव-विज्ञान',
+      title: isEn ? 'Herbal Medicine, Botany & Organic Agriculture' : 'आयुर्वेदिक वनौषधि, वनस्पति विज्ञान एवं जैविक कृषि',
+      grade: isEn ? 'Class VII - XII' : 'कक्षा 7 - 12',
+      instructor: isEn ? 'Dr. Rajeshwari Sharma' : 'डॉ. राजेश्वरी शर्मा',
+      duration: isEn ? 'Full Academic Year' : 'सम्पूर्ण शैक्षणिक सत्र',
+      image: Images.library,
+      description: isEn 
+        ? 'Plant taxonomy, soil microbiology, medicinal herb extraction, and Gaushala eco-sustainability.'
+        : 'पादप वर्गीकरण, मृदा सूक्ष्मजीव विज्ञान, औषधीय पौधों का निष्कर्षण एवं गौ-आधारित जैविक कृषि संवर्धन।',
+      syllabus: isEn ? [
+        'Identification of 100+ Medicinal Flora',
+        'Organic Farm Soil Microbiology',
+        'Panchagavya & Natural Bio-Fertilizers',
+        'Ayurvedic Preventive Nutrition'
+      ] : [
+        '100+ औषधीय वनस्पतियों की पहचान',
+        'जैविक कृषि मृदा सूक्ष्मजीव विज्ञान',
+        'पञ्चगव्य निर्माण एवं प्राकृतिक जैविक खाद',
+        'आयुर्वेदिक ऋतुचर्या एवं आहार विज्ञान'
+      ]
+    }
+  ];
+
+  const categories = [
+    { id: 'All', label: isEn ? 'All' : 'सभी' },
+    { id: 'Vedic STEM', label: isEn ? 'Vedic STEM' : 'वैदिक STEM' },
+    { id: 'AI & Robotics', label: isEn ? 'AI & Robotics' : 'AI एवं रोबोटिक्स' },
+    { id: 'Yogic Science', label: isEn ? 'Yogic Science' : 'योग विज्ञान' },
+    { id: 'Ayurveda & Bio-Sciences', label: isEn ? 'Ayurveda & Bio-Sciences' : 'आयुर्वेद एवं जैव-विज्ञान' }
+  ];
 
   const filteredCourses = selectedCategory === 'All'
     ? COURSES
@@ -85,10 +124,12 @@ export default function Academics({ onNavigate }) {
       {/* Header Banner */}
       <section style={{ padding: '4rem 0 3rem 0', background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
-          <span className="section-tag">HOLISTIC CURRICULUM</span>
-          <h1 className="section-title font-serif">Academic Streams & Syllabus</h1>
+          <span className="section-tag">{isEn ? 'HOLISTIC CURRICULUM' : 'समग्र शैक्षणिक पाठ्यक्रम'}</span>
+          <h1 className="section-title font-serif">{isEn ? 'Academic Streams & Syllabus' : 'शैक्षणिक शाखाएं एवं पाठ्यक्रम'}</h1>
           <p className="section-subtitle">
-            Integrative education merging CBSE/ICSE board excellence with deep Vedic insights, AI coding, and physical mastery.
+            {isEn 
+              ? 'Integrative education merging academic excellence with deep Vedic insights, AI coding, and physical mastery.'
+              : 'संस्कृत वेद-वेदांग, भारतीय दर्शन, आधुनिक विज्ञान, कंप्यूटर कोडिंग एवं शारीरिक योग का समग्र समन्वय।'}
           </p>
         </div>
       </section>
@@ -99,20 +140,21 @@ export default function Academics({ onNavigate }) {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center', marginBottom: '3rem' }}>
             {categories.map(cat => (
               <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
                 style={{
-                  padding: '0.6rem 1.4rem',
+                  padding: '0.55rem 1.25rem',
                   borderRadius: 'var(--radius-full)',
-                  fontSize: '0.9rem',
-                  fontWeight: selectedCategory === cat ? '700' : '500',
-                  background: selectedCategory === cat ? 'var(--accent-gold)' : 'var(--bg-secondary)',
-                  color: selectedCategory === cat ? '#0f0d0e' : 'var(--text-primary)',
+                  background: selectedCategory === cat.id ? 'var(--accent-gold)' : 'var(--bg-secondary)',
+                  color: selectedCategory === cat.id ? '#0f0d0e' : 'var(--text-primary)',
+                  fontWeight: '700',
                   border: '1px solid var(--border-color)',
+                  cursor: 'pointer',
+                  fontSize: '0.875rem',
                   transition: 'var(--transition)'
                 }}
               >
-                {cat}
+                {cat.label}
               </button>
             ))}
           </div>
@@ -120,44 +162,45 @@ export default function Academics({ onNavigate }) {
           {/* Courses Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
             {filteredCourses.map(course => (
-              <div
-                key={course.id}
+              <div 
+                key={course.id} 
                 className="glass-panel"
                 style={{
+                  borderRadius: 'var(--radius-md)',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
-                  transition: 'var(--transition)'
+                  justifyContent: 'space-between',
+                  border: '1px solid var(--border-color)'
                 }}
               >
-                <img src={course.image} alt={course.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-                
-                <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-                    <span className="badge-gold">{course.category}</span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '600' }}>{course.grade}</span>
+                <div>
+                  <img src={course.image} alt={course.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                  <div style={{ padding: '1.5rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                      <span className="badge-gold">{course.categoryLabel}</span>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '600' }}>{course.grade}</span>
+                    </div>
+                    <h3 className="font-serif" style={{ fontSize: '1.25rem', fontWeight: '800', marginBottom: '0.6rem', color: 'var(--text-primary)' }}>
+                      {course.title}
+                    </h3>
+                    <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1rem' }}>
+                      {course.description}
+                    </p>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', fontWeight: '700', marginBottom: '1.25rem' }}>
+                      👨‍🏫 {course.instructor}
+                    </div>
                   </div>
+                </div>
 
-                  <h3 className="font-serif" style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>
-                    {course.title}
-                  </h3>
-
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.25rem', flex: 1 }}>
-                    {course.description}
-                  </p>
-
-                  <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--accent-saffron)', fontWeight: '700' }}>
-                      Guru: {course.instructor}
-                    </span>
-                    <button
-                      onClick={() => setActiveCourseModal(course)}
-                      className="gold-outline-btn"
-                      style={{ padding: '0.4rem 0.9rem', fontSize: '0.8rem' }}
-                    >
-                      View Syllabus
-                    </button>
-                  </div>
+                <div style={{ padding: '0 1.5rem 1.5rem 1.5rem' }}>
+                  <button 
+                    onClick={() => setActiveCourseModal(course)}
+                    className="gold-outline-btn"
+                    style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem' }}
+                  >
+                    {isEn ? 'View Complete Syllabus →' : 'विस्तृत पाठ्यक्रम देखें →'}
+                  </button>
                 </div>
               </div>
             ))}
@@ -166,70 +209,70 @@ export default function Academics({ onNavigate }) {
         </div>
       </section>
 
-      {/* Syllabus Modal */}
+      {/* SYLLABUS DETAIL MODAL */}
       {activeCourseModal && (
-        <div
+        <div 
           style={{
             position: 'fixed',
             inset: 0,
             zIndex: 9999,
-            background: 'rgba(0,0,0,0.75)',
+            background: 'rgba(0, 0, 0, 0.75)',
             backdropFilter: 'blur(8px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '1.5rem'
+            padding: '1rem'
           }}
           onClick={() => setActiveCourseModal(null)}
         >
-          <div
+          <div 
             className="glass-panel"
             style={{
-              maxWidth: '560px',
+              maxWidth: '600px',
               width: '100%',
               background: 'var(--bg-primary)',
-              padding: '2rem',
-              borderRadius: 'var(--radius-md)',
-              border: '1px solid var(--accent-gold)'
+              borderRadius: 'var(--radius-lg)',
+              padding: 'clamp(1.5rem, 4vw, 2.5rem)',
+              position: 'relative',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              border: '2px solid var(--accent-gold)'
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-              <div>
-                <span className="badge-gold" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>{activeCourseModal.category}</span>
-                <h3 className="font-serif" style={{ fontSize: '1.4rem', fontWeight: '800' }}>{activeCourseModal.title}</h3>
-              </div>
-              <button onClick={() => setActiveCourseModal(null)} style={{ color: 'var(--text-muted)' }}>
-                <X size={22} />
-              </button>
-            </div>
+            <button 
+              onClick={() => setActiveCourseModal(null)}
+              style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}
+            >
+              <X size={24} />
+            </button>
 
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: 1.6 }}>
-              {activeCourseModal.description}
+            <span className="badge-gold" style={{ marginBottom: '0.75rem', display: 'inline-block' }}>{activeCourseModal.categoryLabel}</span>
+            <h3 className="font-serif" style={{ fontSize: '1.5rem', fontWeight: '800', marginBottom: '0.5rem' }}>
+              {activeCourseModal.title}
+            </h3>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+              {activeCourseModal.grade} • {activeCourseModal.duration} • {activeCourseModal.instructor}
             </p>
 
-            <h4 className="font-serif" style={{ fontSize: '1rem', fontWeight: '700', marginBottom: '0.75rem', color: 'var(--accent-gold)' }}>
-              Core Syllabus & Modules:
+            <h4 style={{ fontSize: '1rem', fontWeight: '700', marginBottom: '0.75rem', color: 'var(--accent-saffron)' }}>
+              {isEn ? 'Key Curriculum Modules:' : 'प्रमुख पाठ्यक्रम मॉड्यूल:'}
             </h4>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.75rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '2rem' }}>
               {activeCourseModal.syllabus.map((item, idx) => (
-                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.875rem', color: 'var(--text-primary)' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--accent-saffron)' }} />
-                  {item}
+                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
+                  <CheckCircle2 size={16} style={{ color: 'var(--accent-emerald)', flexShrink: 0 }} />
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
 
-            <button
-              onClick={() => {
-                setActiveCourseModal(null);
-                onNavigate('admissions');
-              }}
+            <button 
+              onClick={() => { setActiveCourseModal(null); onNavigate('admission'); }}
               className="saffron-gradient-btn"
               style={{ width: '100%', justifyContent: 'center' }}
             >
-              Apply For Admission in this Stream
+              {isEn ? 'Enroll via Admission Process →' : 'प्रवेश प्रक्रिया द्वारा नामांकन करें →'}
             </button>
           </div>
         </div>
