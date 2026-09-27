@@ -61,7 +61,7 @@ export default function Home({ onNavigate, lang }) {
       <section 
         style={{
           position: 'relative',
-          padding: '4rem 0 5.5rem 0',
+          padding: 'clamp(2rem, 4vw, 3.5rem) 0 clamp(3rem, 6vw, 5rem) 0',
           overflow: 'hidden',
           background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)'
         }}
