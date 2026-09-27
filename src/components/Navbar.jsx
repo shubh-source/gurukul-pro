@@ -58,24 +58,25 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
         style={{
           background: 'linear-gradient(90deg, #1c1917 0%, var(--accent-saffron) 50%, #1c1917 100%)',
           color: '#fff',
-          fontSize: '0.8rem',
+          fontSize: 'clamp(0.72rem, 2.4vw, 0.8rem)',
           fontWeight: '700',
           textAlign: 'center',
-          padding: '0.4rem 1rem',
+          padding: '0.35rem 0.75rem',
           letterSpacing: '0.02em',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          gap: '0.6rem'
+          flexWrap: 'wrap',
+          gap: '0.4rem 0.75rem'
         }}
       >
-        <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-          <Flag size={14} style={{ color: '#fff' }} /> 
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+          <Flag size={13} style={{ color: '#fff', flexShrink: 0 }} /> 
           {isEn ? 'Admissions Open 2026-27 | Free Residential Sanskrit & Modern Gurukul Education' : 'सत्र 2026-27 प्रवेश प्रारंभ | निःशुल्क आवासीय संस्कृत एवं आधुनिक गुरुकुल शिक्षा'}
         </span>
         <button 
           onClick={() => handleNavClick('admission')}
-          style={{ textDecoration: 'underline', color: '#fff', fontWeight: '800', cursor: 'pointer' }}
+          style={{ textDecoration: 'underline', color: '#fff', fontWeight: '800', cursor: 'pointer', whiteSpace: 'nowrap' }}
         >
           {isEn ? 'Apply Now →' : 'आवेदन करें →'}
         </button>
@@ -98,12 +99,12 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
           {/* Brand Official Logo & Title */}
           <div 
             onClick={() => handleNavClick('home')}
-            style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minWidth: 0 }}
+            style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', cursor: 'pointer', minWidth: 0, flex: 1, paddingRight: '0.35rem' }}
           >
             <div 
               style={{
-                width: '46px',
-                height: '46px',
+                width: '44px',
+                height: '44px',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 border: '2px solid var(--accent-gold)',
@@ -122,8 +123,20 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
               />
             </div>
             <div style={{ minWidth: 0 }}>
-              <span className="font-serif gold-gradient-text" style={{ fontSize: 'clamp(0.95rem, 3.8vw, 1.25rem)', fontWeight: '800', display: 'block', lineHeight: 1.15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                {isEn ? 'Atmanand Sanskrit Teaching Institute' : 'आत्मानन्द संस्कृत शिक्षण संस्थान'}
+              <span 
+                className="font-serif gold-gradient-text nav-brand-title" 
+                style={{ 
+                  fontSize: 'clamp(0.88rem, 3.4vw, 1.25rem)', 
+                  fontWeight: '800', 
+                  display: 'block', 
+                  lineHeight: 1.18 
+                }}
+              >
+                {isEn ? (
+                  <>Atmanand Sanskrit <span style={{ display: 'inline-block' }}>Teaching Institute</span></>
+                ) : (
+                  <>आत्मानन्द संस्कृत <span style={{ display: 'inline-block' }}>शिक्षण संस्थान</span></>
+                )}
               </span>
               <span className="nav-tagline-desktop" style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: '600', display: 'block', marginTop: '2px' }}>
                 {isEn ? 'Sanskrit Education • Culture • Values • Cow Protection | Naimisharanya, Sitapur' : 'संस्कृत शिक्षा • संस्कार • संस्कृति • गौसेवा | नैमिषारण्य, सीतापुर (उ.प्र.)'}
@@ -132,11 +145,12 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
           </div>
 
           {/* Right Action Tools (Language Switcher, Search, Theme, Donate CTA, Hamburger Menu) */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexShrink: 0 }}>
             
             {/* Language Switcher Toggle */}
             <button
               onClick={onToggleLang}
+              className="nav-lang-btn"
               title={isEn ? "हिंदी में बदलें" : "Switch to English"}
               style={{
                 height: '40px',
@@ -149,23 +163,26 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
                 fontSize: '0.82rem',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
+                gap: '0.35rem',
                 cursor: 'pointer',
-                transition: 'var(--transition)'
+                transition: 'var(--transition)',
+                flexShrink: 0
               }}
             >
               <Globe size={16} />
-              <span>{isEn ? 'HI | EN' : 'हिंदी | EN'}</span>
+              <span className="nav-lang-btn-text-full">{isEn ? 'HI | EN' : 'हिंदी | EN'}</span>
+              <span className="nav-lang-btn-text-short">{isEn ? 'HI' : 'EN'}</span>
             </button>
 
             {/* Hover Expanding Search */}
             <div
               onMouseEnter={() => setIsSearchHovered(true)}
               onMouseLeave={() => setIsSearchHovered(false)}
-              style={{ position: 'relative' }}
+              style={{ position: 'relative', flexShrink: 0 }}
             >
               <button
                 onClick={onOpenSearch}
+                className="nav-search-btn"
                 title={isEn ? "Search" : "खोजें"}
                 style={{
                   display: 'flex',
@@ -215,6 +232,7 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
               onClick={() => setIsMenuOpen(prev => !prev)}
               aria-expanded={isMenuOpen}
               aria-label={isEn ? "Toggle Navigation Menu" : "नेविगेशन मेन्यू"}
+              className="nav-hamburger-btn"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -229,11 +247,12 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
                 cursor: 'pointer',
                 touchAction: 'manipulation',
                 transition: 'background 0.3s ease, color 0.3s ease, border-color 0.3s ease',
-                boxShadow: 'var(--shadow-sm)'
+                boxShadow: 'var(--shadow-sm)',
+                flexShrink: 0
               }}
             >
-              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-              <span>{isEn ? 'Menu' : 'मेन्यू'}</span>
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              <span className="nav-menu-text">{isEn ? 'Menu' : 'मेन्यू'}</span>
             </button>
           </div>
         </div>
