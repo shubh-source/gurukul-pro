@@ -28,11 +28,11 @@ export default function Contact({ onNavigate }) {
       <section style={{ padding: '4rem 0', background: 'var(--bg-primary)' }}>
         <div className="container">
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(1.5rem, 4vw, 3rem)' }}>
             
             {/* Left Contact Information */}
             <div>
-              <h3 className="font-serif" style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '1.25rem' }}>
+              <h3 className="font-serif" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.6rem)', fontWeight: '800', marginBottom: '1.25rem' }}>
                 संस्थान का आधिकारिक पता
               </h3>
 
@@ -81,7 +81,7 @@ export default function Contact({ onNavigate }) {
               </div>
 
               {/* Map Preview Placeholder */}
-              <div className="glass-panel" style={{ padding: '1.5rem', background: 'var(--bg-secondary)', textAlignment: 'center' }}>
+              <div className="glass-panel" style={{ padding: '1.5rem', background: 'var(--bg-secondary)', textAlign: 'center' }}>
                 <span style={{ fontSize: '2rem' }}>🗺️</span>
                 <h4 className="font-serif" style={{ fontSize: '1.1rem', fontWeight: '700', marginTop: '0.5rem', marginBottom: '0.25rem' }}>
                   नैमिषारण्य मानचित्र दिशा-निर्देश
@@ -93,8 +93,8 @@ export default function Contact({ onNavigate }) {
             </div>
 
             {/* Right Contact Form */}
-            <div className="glass-panel" style={{ padding: '2.5rem', background: 'var(--bg-secondary)', border: '1px solid var(--accent-gold)' }}>
-              <h3 className="font-serif" style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '1.25rem' }}>
+            <div className="glass-panel" style={{ padding: 'clamp(1.25rem, 4vw, 2.5rem)', background: 'var(--bg-secondary)', border: '1px solid var(--accent-gold)' }}>
+              <h3 className="font-serif" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.6rem)', fontWeight: '800', marginBottom: '1.25rem' }}>
                 संदेश या प्रश्न भेजें
               </h3>
 

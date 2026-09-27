@@ -14,7 +14,7 @@ export default function ScholarshipCalculator({ lang, onNavigate }) {
     <div 
       className="glass-panel"
       style={{
-        padding: '2.25rem 2rem',
+        padding: 'clamp(1.25rem, 4vw, 2.25rem) clamp(1rem, 4vw, 2rem)',
         borderRadius: 'var(--radius-lg)',
         background: 'linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)',
         border: '1px solid var(--accent-gold)',
@@ -26,7 +26,7 @@ export default function ScholarshipCalculator({ lang, onNavigate }) {
         <span className="badge-gold" style={{ marginBottom: '0.6rem', display: 'inline-block' }}>
           {isEn ? '100% Free Residential Sponsorship' : '100% निःशुल्क छात्रवृत्ति एवं गोद प्रकल्प'}
         </span>
-        <h3 className="font-serif gold-gradient-text" style={{ fontSize: '1.65rem', fontWeight: '800', marginBottom: '0.5rem' }}>
+        <h3 className="font-serif gold-gradient-text" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.65rem)', fontWeight: '800', marginBottom: '0.5rem' }}>
           {isEn ? 'Interactive Scholarship & Sponsorship Calculator' : 'छात्रवृत्ति एवं निःशुल्क गुरुकुल शिक्षा कैलकुलेटर'}
         </h3>
         <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
@@ -34,7 +34,7 @@ export default function ScholarshipCalculator({ lang, onNavigate }) {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', alignItems: 'center' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '2rem', alignItems: 'center' }}>
         
         {/* Slider Controls */}
         <div style={{ background: 'var(--bg-primary)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
@@ -99,7 +99,7 @@ export default function ScholarshipCalculator({ lang, onNavigate }) {
             {isEn ? 'Total Student Scholarship Value Sponsored' : 'संस्थान द्वारा प्रदत्त कुल निःशुल्क शिक्षा मूल्य'}
           </span>
 
-          <h2 className="font-serif gold-gradient-text" style={{ fontSize: '2.5rem', fontWeight: '900', marginBottom: '1rem' }}>
+          <h2 className="font-serif gold-gradient-text" style={{ fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', fontWeight: '900', marginBottom: '1rem' }}>
             ₹{totalSponsorshipValue.toLocaleString('hi-IN')}
           </h2>
 

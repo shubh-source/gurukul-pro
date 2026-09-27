@@ -44,7 +44,7 @@ export default function Sanskar({ onNavigate }) {
       <section style={{ padding: '5rem 0', background: 'var(--bg-primary)' }}>
         <div className="container">
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '2rem' }}>
             {SERVICES.map((item) => (
               <div 
                 key={item.id}

@@ -133,7 +133,7 @@ export default function Gurukul({ onNavigate }) {
             <h2 className="section-title font-serif">गुरुकुल में एक दिन का चक्र</h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(1.5rem, 4vw, 2.5rem)', alignItems: 'center' }}>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
               {DAILY_SCHEDULE.map((item, idx) => {
@@ -174,7 +174,7 @@ export default function Gurukul({ onNavigate }) {
             <div 
               className="glass-panel"
               style={{
-                padding: '2.5rem',
+                padding: 'clamp(1.25rem, 4vw, 2.5rem)',
                 border: '1px solid var(--accent-gold)',
                 background: 'var(--bg-secondary)'
               }}

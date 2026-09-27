@@ -13,6 +13,7 @@ export default function SocialFloating() {
 
   return (
     <div 
+      className="social-floating-bar"
       style={{
         position: 'fixed',
         right: '1rem',

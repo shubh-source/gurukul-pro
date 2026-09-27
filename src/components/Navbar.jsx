@@ -98,12 +98,12 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
           {/* Brand Official Logo & Title */}
           <div 
             onClick={() => handleNavClick('home')}
-            style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', cursor: 'pointer' }}
+            style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', minWidth: 0 }}
           >
             <div 
               style={{
-                width: '54px',
-                height: '54px',
+                width: '46px',
+                height: '46px',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 border: '2px solid var(--accent-gold)',
@@ -117,15 +117,15 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
             >
               <img 
                 src={Images.logo} 
-                alt="स्वामी आत्मानन्द गुरुकुलम् नैमिषारण्य" 
+                alt="आत्मानन्द गुरुकुलम् नैमिषारण्य" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
-            <div>
-              <span className="font-serif gold-gradient-text" style={{ fontSize: '1.25rem', fontWeight: '800', display: 'block', lineHeight: 1.15 }}>
+            <div style={{ minWidth: 0 }}>
+              <span className="font-serif gold-gradient-text" style={{ fontSize: 'clamp(0.95rem, 3.8vw, 1.25rem)', fontWeight: '800', display: 'block', lineHeight: 1.15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {isEn ? 'Atmanand Sanskrit Teaching Institute' : 'आत्मानन्द संस्कृत शिक्षण संस्थान'}
               </span>
-              <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: '600', display: 'block', marginTop: '2px' }}>
+              <span className="nav-tagline-desktop" style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: '600', display: 'block', marginTop: '2px' }}>
                 {isEn ? 'Sanskrit Education • Culture • Values • Cow Protection | Naimisharanya, Sitapur' : 'संस्कृत शिक्षा • संस्कार • संस्कृति • गौसेवा | नैमिषारण्य, सीतापुर (उ.प्र.)'}
               </span>
             </div>
@@ -203,7 +203,7 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
             {/* Admission CTA */}
             <button
               onClick={() => handleNavClick('admission')}
-              className="saffron-gradient-btn"
+              className="saffron-gradient-btn nav-admission-btn-desktop"
               style={{ padding: '0.55rem 1.2rem', fontSize: '0.85rem' }}
             >
               {isEn ? 'Admission Form' : 'प्रवेश आवेदन'}
@@ -259,8 +259,7 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
       >
         <div 
           style={{
-            width: '100%',
-            maxWidth: '480px',
+            width: 'min(360px, 86vw)',
             height: '100%',
             maxHeight: '100vh',
             background: 'var(--bg-primary)',
@@ -268,7 +267,7 @@ export default function Navbar({ activePage, setActivePage, lang, onToggleLang, 
             boxShadow: '-10px 0 35px rgba(0, 0, 0, 0.6)',
             display: 'flex',
             flexDirection: 'column',
-            padding: '1.75rem 1.5rem',
+            padding: 'clamp(1.25rem, 4vw, 1.75rem) clamp(1rem, 3.5vw, 1.5rem)',
             overflowY: 'auto',
             WebkitOverflowScrolling: 'touch',
             position: 'relative',

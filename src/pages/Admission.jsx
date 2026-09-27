@@ -155,7 +155,7 @@ export default function Admission({ onNavigate, lang }) {
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>नैमिषारण्य, सीतापुर (उ.प्र.) | ऑनलाइन प्रवेश पंजीकरण पर्ची</p>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+              <div className="form-grid-2col" style={{ marginBottom: '1.5rem', fontSize: '0.9rem' }}>
                 <div><strong>पंजीकरण संख्या:</strong> {slip.regNo}</div>
                 <div><strong>आवेदन तिथि:</strong> {slip.date}</div>
                 <div><strong>विद्यार्थी का नाम:</strong> {slip.studentName}</div>
@@ -174,7 +174,7 @@ export default function Admission({ onNavigate, lang }) {
                 ✓ आपका आवेदन डेटाबेस में सुरक्षित सेव हो गया है एवं व्हाट्सएप्प (WhatsApp Message) पर भेज दिया गया है।
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <button onClick={() => window.print()} className="gold-outline-btn">
                   <Printer size={16} /> पर्ची प्रिंट करें
                 </button>
@@ -185,7 +185,7 @@ export default function Admission({ onNavigate, lang }) {
             </div>
           ) : (
             /* ONLINE ADMISSION APPLICATION FORM WITH LIVE DATABASE BADGE */
-            <div className="glass-panel" style={{ maxWidth: '760px', margin: '0 auto', padding: '2.5rem', background: 'var(--bg-secondary)', border: '1px solid var(--accent-gold)' }}>
+            <div className="glass-panel" style={{ maxWidth: '760px', margin: '0 auto', padding: 'clamp(1.25rem, 4vw, 2.5rem)', background: 'var(--bg-secondary)', border: '1px solid var(--accent-gold)' }}>
               
               <div 
                 style={{
@@ -206,13 +206,13 @@ export default function Admission({ onNavigate, lang }) {
                 <span>{isEn ? '🟢 Live Database & Email Sync Active' : '🟢 लाइव डेटाबेस एवं ई-मेल सिंक सक्रिय'}</span>
               </div>
 
-              <h3 className="font-serif" style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '1.5rem', textAlign: 'center' }}>
+              <h3 className="font-serif" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.6rem)', fontWeight: '800', marginBottom: '1.5rem', textAlign: 'center' }}>
                 {isEn ? 'Online Admission Application Form (Session 2026-27)' : 'ऑनलाइन प्रवेश आवेदन पत्र (Session 2026-27)'}
               </h3>
 
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
                 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="form-grid-2col">
                   <div>
                     <label style={{ fontSize: '0.85rem', fontWeight: '700', display: 'block', marginBottom: '0.35rem' }}>{isEn ? 'Student Full Name *' : 'विद्यार्थी का पूरा नाम *'}</label>
                     <input type="text" required placeholder="उदा: आदर्श मिश्रा" value={formData.studentName} onChange={(e) => setFormData({ ...formData, studentName: e.target.value })} style={{ width: '100%', padding: '0.7rem 0.9rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'var(--text-primary)' }} />
@@ -223,7 +223,7 @@ export default function Admission({ onNavigate, lang }) {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="form-grid-2col">
                   <div>
                     <label style={{ fontSize: '0.85rem', fontWeight: '700', display: 'block', marginBottom: '0.35rem' }}>{isEn ? 'Father Name *' : 'पिता का नाम *'}</label>
                     <input type="text" required placeholder="उदा: श्री रामेश्वर मिश्रा" value={formData.fatherName} onChange={(e) => setFormData({ ...formData, fatherName: e.target.value })} style={{ width: '100%', padding: '0.7rem 0.9rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'var(--text-primary)' }} />
@@ -234,7 +234,7 @@ export default function Admission({ onNavigate, lang }) {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="form-grid-2col">
                   <div>
                     <label style={{ fontSize: '0.85rem', fontWeight: '700', display: 'block', marginBottom: '0.35rem' }}>{isEn ? 'Target Class *' : 'प्रवेश हेतु कक्षा *'}</label>
                     <select value={formData.targetClass} onChange={(e) => setFormData({ ...formData, targetClass: e.target.value })} style={{ width: '100%', padding: '0.7rem 0.9rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'var(--text-primary)', fontWeight: '700' }}>
@@ -253,7 +253,7 @@ export default function Admission({ onNavigate, lang }) {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="form-grid-2col">
                   <div>
                     <label style={{ fontSize: '0.85rem', fontWeight: '700', display: 'block', marginBottom: '0.35rem' }}>{isEn ? 'Guardian Mobile *' : 'अभिभावक मोबाइल नंबर *'}</label>
                     <input type="tel" required placeholder="+91 9876543210" value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} style={{ width: '100%', padding: '0.7rem 0.9rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'var(--text-primary)' }} />

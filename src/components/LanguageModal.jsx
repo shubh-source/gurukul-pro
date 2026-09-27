@@ -48,7 +48,7 @@ export default function LanguageModal({ currentLang, onSelectLanguage }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '1.25rem'
+        padding: '0.75rem'
       }}
     >
       <div 
@@ -57,9 +57,11 @@ export default function LanguageModal({ currentLang, onSelectLanguage }) {
         style={{
           width: '100%',
           maxWidth: '520px',
+          maxHeight: '90vh',
+          overflowY: 'auto',
           background: 'var(--bg-primary)',
           borderRadius: 'var(--radius-lg)',
-          padding: '2.25rem 2rem',
+          padding: 'clamp(1.5rem, 5vw, 2.25rem) clamp(1rem, 4vw, 2rem)',
           textAlign: 'center',
           border: '2px solid var(--accent-gold)',
           boxShadow: '0 25px 60px rgba(0,0,0,0.9)',
@@ -106,21 +108,21 @@ export default function LanguageModal({ currentLang, onSelectLanguage }) {
           <Globe size={28} />
         </div>
 
-        <h2 className="font-serif gold-gradient-text" style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '0.5rem' }}>
+        <h2 className="font-serif gold-gradient-text" style={{ fontSize: 'clamp(1.2rem, 4.5vw, 1.6rem)', fontWeight: '800', marginBottom: '0.5rem' }}>
           भाषा का चयन करें / Select Language
         </h2>
 
-        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '2rem', lineHeight: 1.6 }}>
+        <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '1.75rem', lineHeight: 1.6 }}>
           आत्मानन्द संस्कृत शिक्षण संस्थान की आधिकारिक वेबसाइट में आपका स्वागत है। कृपया अपनी पसंदीदा भाषा चुनें:
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.85rem' }}>
           
           {/* Hindi Choice */}
           <button
             onClick={() => handleSelect('hi')}
             style={{
-              padding: '1.25rem 1rem',
+              padding: '1.1rem 0.85rem',
               borderRadius: 'var(--radius-md)',
               background: currentLang === 'hi' ? 'rgba(212, 175, 55, 0.15)' : 'var(--bg-secondary)',
               border: '2px solid var(--accent-gold)',
@@ -128,20 +130,20 @@ export default function LanguageModal({ currentLang, onSelectLanguage }) {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '0.5rem',
+              gap: '0.4rem',
               transition: 'var(--transition)'
             }}
           >
             <span style={{ fontSize: '1.75rem' }}>🇮🇳</span>
-            <strong className="font-serif" style={{ fontSize: '1.15rem', color: 'var(--accent-gold)' }}>हिंदी (Hindi)</strong>
-            <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>संस्कृत शिक्षा व मूल विवरण</span>
+            <strong className="font-serif" style={{ fontSize: '1.1rem', color: 'var(--accent-gold)' }}>हिंदी (Hindi)</strong>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>संस्कृत शिक्षा व मूल विवरण</span>
           </button>
 
           {/* English Choice */}
           <button
             onClick={() => handleSelect('en')}
             style={{
-              padding: '1.25rem 1rem',
+              padding: '1.1rem 0.85rem',
               borderRadius: 'var(--radius-md)',
               background: currentLang === 'en' ? 'rgba(212, 175, 55, 0.15)' : 'var(--bg-secondary)',
               border: '2px solid var(--accent-gold)',
@@ -149,13 +151,13 @@ export default function LanguageModal({ currentLang, onSelectLanguage }) {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '0.5rem',
+              gap: '0.4rem',
               transition: 'var(--transition)'
             }}
           >
             <span style={{ fontSize: '1.75rem' }}>🇬🇧</span>
-            <strong style={{ fontSize: '1.15rem', color: 'var(--accent-gold)' }}>English</strong>
-            <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Global Portal View</span>
+            <strong style={{ fontSize: '1.1rem', color: 'var(--accent-gold)' }}>English</strong>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Global Portal View</span>
           </button>
 
         </div>

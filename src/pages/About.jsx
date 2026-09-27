@@ -19,7 +19,7 @@ export default function About({ onNavigate }) {
 
       {/* Main Heritage Intro */}
       <section style={{ padding: '5rem 0', background: 'var(--bg-primary)' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(1.5rem, 4vw, 3rem)', alignItems: 'center' }}>
           
           <div>
             <span className="badge-gold" style={{ marginBottom: '1rem', display: 'inline-block' }}>पवित्र नैमिषारण्य तपोभूमि</span>
@@ -64,7 +64,7 @@ export default function About({ onNavigate }) {
             <h2 className="section-title font-serif">विज़न एवं मिशन</h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
             
             <div className="glass-panel" style={{ padding: '2.25rem', background: 'var(--bg-primary)' }}>
               <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>👁️</div>

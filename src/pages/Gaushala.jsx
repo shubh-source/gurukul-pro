@@ -19,7 +19,7 @@ export default function Gaushala({ onNavigate }) {
 
       {/* GAUSHALA HERO IMAGE & INTRO */}
       <section style={{ padding: '5rem 0', background: 'var(--bg-primary)' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(1.5rem, 4vw, 3rem)', alignItems: 'center' }}>
           
           <div>
             <span className="badge-gold" style={{ marginBottom: '1rem', display: 'inline-block' }}>पवित्र गौसेवा सेवा प्रकल्प</span>
@@ -62,7 +62,7 @@ export default function Gaushala({ onNavigate }) {
             <h2 className="section-title font-serif">गौशाला सेवा एवं दान श्रेणियां</h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '2rem' }}>
             
             {/* Card 1 */}
             <div className="glass-panel" style={{ padding: '2rem', background: 'var(--bg-primary)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>

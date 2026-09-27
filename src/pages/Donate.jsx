@@ -62,16 +62,16 @@ export default function Donate({ onNavigate }) {
           
           {receipt ? (
             /* PRINTABLE RECEIPT CARD */
-            <div className="glass-panel" style={{ maxWidth: '640px', margin: '0 auto', padding: '2.5rem', background: 'var(--bg-secondary)', border: '2px dashed var(--accent-gold)' }}>
+            <div className="glass-panel" style={{ maxWidth: '640px', margin: '0 auto', padding: 'clamp(1.25rem, 4vw, 2.5rem)', background: 'var(--bg-secondary)', border: '2px dashed var(--accent-gold)' }}>
               <div style={{ textAlign: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem', marginBottom: '1.5rem' }}>
                 <span style={{ fontSize: '2.2rem' }}>🚩</span>
-                <h2 className="font-serif gold-gradient-text" style={{ fontSize: '1.6rem', fontWeight: '800' }}>
+                <h2 className="font-serif gold-gradient-text" style={{ fontSize: 'clamp(1.3rem, 4vw, 1.6rem)', fontWeight: '800' }}>
                   आत्मानन्द संस्कृत शिक्षण संस्थान
                 </h2>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>नैमिषारण्य, सीतापुर, उत्तर प्रदेश | दान रसीद</p>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+              <div className="form-grid-2col" style={{ marginBottom: '1.5rem', fontSize: '0.9rem' }}>
                 <div><strong>रसीद संख्या:</strong> {receipt.receiptNo}</div>
                 <div><strong>दिनांक:</strong> {receipt.date}</div>
                 <div><strong>दाता का नाम:</strong> {receipt.name}</div>
@@ -80,7 +80,7 @@ export default function Donate({ onNavigate }) {
                 <div><strong>पैन नंबर:</strong> {receipt.pan}</div>
               </div>
 
-              <div style={{ padding: '1rem', background: 'var(--bg-primary)', borderRadius: 'var(--radius-sm)', marginBottom: '1.5rem', textAlignment: 'center', border: '1px solid var(--border-color)' }}>
+              <div style={{ padding: '1rem', background: 'var(--bg-primary)', borderRadius: 'var(--radius-sm)', marginBottom: '1.5rem', textAlign: 'center', border: '1px solid var(--border-color)' }}>
                 <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>दान श्रेणी: {receipt.category}</div>
                 <div className="font-serif" style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--accent-saffron)', marginTop: '0.2rem' }}>
                   ₹ {receipt.amount.toLocaleString('en-IN')} /-
@@ -90,7 +90,7 @@ export default function Donate({ onNavigate }) {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <button onClick={() => window.print()} className="gold-outline-btn">
                   <Printer size={16} /> रसीद प्रिंट करें
                 </button>
@@ -101,11 +101,11 @@ export default function Donate({ onNavigate }) {
             </div>
           ) : (
             /* DONATION CALCULATOR & CATEGORIES */
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(1.5rem, 4vw, 3rem)' }}>
               
               {/* Left Categories */}
               <div>
-                <h3 className="font-serif" style={{ fontSize: '1.5rem', fontWeight: '800', marginBottom: '1.25rem' }}>
+                <h3 className="font-serif" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)', fontWeight: '800', marginBottom: '1.25rem' }}>
                   1. सहयोग की श्रेणी चुनें
                 </h3>
 
@@ -142,8 +142,8 @@ export default function Donate({ onNavigate }) {
               </div>
 
               {/* Right Amount & Donor Details Form */}
-              <div className="glass-panel" style={{ padding: '2rem', background: 'var(--bg-secondary)', border: '1px solid var(--accent-gold)' }}>
-                <h3 className="font-serif" style={{ fontSize: '1.5rem', fontWeight: '800', marginBottom: '1.25rem' }}>
+              <div className="glass-panel" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)', background: 'var(--bg-secondary)', border: '1px solid var(--accent-gold)' }}>
+                <h3 className="font-serif" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)', fontWeight: '800', marginBottom: '1.25rem' }}>
                   2. सहयोग राशि एवं विवरण
                 </h3>
 
@@ -152,7 +152,7 @@ export default function Donate({ onNavigate }) {
                   {/* Preset Amount buttons */}
                   <div style={{ marginBottom: '1.25rem' }}>
                     <label style={{ fontSize: '0.85rem', fontWeight: '700', display: 'block', marginBottom: '0.5rem' }}>सहयोग राशि चुनें (₹)</label>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(65px, 1fr))', gap: '0.5rem', marginBottom: '0.75rem' }}>
                       {AMOUNTS.map((amt) => {
                         const active = selectedAmount === amt && !customAmount;
                         return (
@@ -205,7 +205,7 @@ export default function Donate({ onNavigate }) {
                       <input type="tel" required placeholder="+91 9876543210" value={donorInfo.phone} onChange={(e) => setDonorInfo({ ...donorInfo, phone: e.target.value })} style={{ width: '100%', padding: '0.65rem 0.85rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'var(--text-primary)' }} />
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                    <div className="form-grid-2col">
                       <div>
                         <label style={{ fontSize: '0.85rem', fontWeight: '700', display: 'block', marginBottom: '0.35rem' }}>शहर / स्थान</label>
                         <input type="text" placeholder="लखनऊ / दिल्ली" value={donorInfo.city} onChange={(e) => setDonorInfo({ ...donorInfo, city: e.target.value })} style={{ width: '100%', padding: '0.65rem 0.85rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'var(--text-primary)' }} />

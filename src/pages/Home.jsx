@@ -66,7 +66,7 @@ export default function Home({ onNavigate, lang }) {
           background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)'
         }}
       >
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(1.5rem, 4vw, 3rem)', alignItems: 'center' }}>
           
           {/* Left Text */}
           <div>
@@ -74,7 +74,7 @@ export default function Home({ onNavigate, lang }) {
               <Flag size={14} style={{ color: 'var(--accent-saffron)' }} /> {isEn ? 'Sacred Pilgrimage — Naimisharanya, Sitapur (U.P.)' : 'पावन तीर्थ क्षेत्र — नैमिषारण्य, सीतापुर (उत्तर प्रदेश)'}
             </div>
 
-            <h1 className="font-serif" style={{ fontSize: 'clamp(2.1rem, 4.8vw, 3.4rem)', fontWeight: '900', lineHeight: 1.2, marginBottom: '1.25rem' }}>
+            <h1 className="font-serif" style={{ fontSize: 'clamp(1.85rem, 4.8vw, 3.4rem)', fontWeight: '900', lineHeight: 1.2, marginBottom: '1.25rem' }}>
               {isEn ? 'Atmanand Sanskrit Teaching Institute' : 'आत्मानन्द संस्कृत शिक्षण संस्थान'}
             </h1>
 
@@ -85,16 +85,16 @@ export default function Home({ onNavigate, lang }) {
               <span className="badge-gold">{isEn ? 'Gau Seva' : 'गौसेवा'}</span>
             </div>
 
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2.25rem', maxWidth: '580px' }}>
+            <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2rem', maxWidth: '580px' }}>
               {isEn ? 'A premier Vedic educational institute located in Naimisharanya, dedicated to Indian Knowledge Systems, Vedas, Gurukul heritage and cow protection.' : 'भारतीय ज्ञान परंपरा, वेद-वेदांग, गुरुकुल संस्कृति एवं गौसेवा को समर्पित नैमिषारण्य की पावन भूमि पर स्थित एक प्रमुख सनातन शिक्षण संस्थान।'}
             </p>
 
             {/* Hero CTA Buttons */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem', marginBottom: '2.5rem' }}>
               <button 
                 onClick={() => onNavigate('admission')} 
                 className="saffron-gradient-btn"
-                style={{ fontSize: '1rem', padding: '0.9rem 2rem' }}
+                style={{ fontSize: '0.95rem', padding: '0.85rem 1.75rem' }}
               >
                 {isEn ? '[ Apply for Admission ]' : '[ प्रवेश हेतु आवेदन करें ]'} <ArrowRight size={18} />
               </button>
@@ -102,25 +102,25 @@ export default function Home({ onNavigate, lang }) {
               <button 
                 onClick={() => onNavigate('donate')} 
                 className="gold-outline-btn"
-                style={{ fontSize: '1rem', padding: '0.9rem 1.8rem' }}
+                style={{ fontSize: '0.95rem', padding: '0.85rem 1.6rem' }}
               >
                 {isEn ? '[ Donate / Support ]' : '[ सहयोग / दान करें ]'}
               </button>
             </div>
 
             {/* Key Stat Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(90px, 1fr))', gap: '0.85rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
               <div>
-                <h3 className="font-serif gold-gradient-text" style={{ fontSize: '1.75rem', fontWeight: '800' }}>100%</h3>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '700' }}>{isEn ? 'Free Residential Gurukul' : 'आवासीय गुरुकुल'}</p>
+                <h3 className="font-serif gold-gradient-text" style={{ fontSize: '1.6rem', fontWeight: '800' }}>100%</h3>
+                <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: '700' }}>{isEn ? 'Free Residential Gurukul' : 'आवासीय गुरुकुल'}</p>
               </div>
               <div>
-                <h3 className="font-serif gold-gradient-text" style={{ fontSize: '1.75rem', fontWeight: '800' }}>{isEn ? 'Classes 6–12' : 'कक्षा 6–12'}</h3>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '700' }}>{isEn ? 'Sanskrit & Veda Studies' : 'संस्कृत एवं वेद शिक्षा'}</p>
+                <h3 className="font-serif gold-gradient-text" style={{ fontSize: '1.6rem', fontWeight: '800' }}>{isEn ? 'Classes 6–12' : 'कक्षा 6–12'}</h3>
+                <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: '700' }}>{isEn ? 'Sanskrit & Veda Studies' : 'संस्कृत एवं वेद शिक्षा'}</p>
               </div>
               <div>
-                <h3 className="font-serif gold-gradient-text" style={{ fontSize: '1.75rem', fontWeight: '800' }}>{isEn ? 'Daily' : 'नित्य'}</h3>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '700' }}>{isEn ? 'Yagya & Cow Welfare' : 'गौसेवा एवं यज्ञ'}</p>
+                <h3 className="font-serif gold-gradient-text" style={{ fontSize: '1.6rem', fontWeight: '800' }}>{isEn ? 'Daily' : 'नित्य'}</h3>
+                <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: '700' }}>{isEn ? 'Yagya & Cow Welfare' : 'गौसेवा एवं यज्ञ'}</p>
               </div>
             </div>
 
@@ -180,7 +180,7 @@ export default function Home({ onNavigate, lang }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '2.5rem', alignItems: 'center' }}>
             <div>
               <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: 1.75, marginBottom: '1.25rem' }}>
                 {isEn ? 'The main objective is to impart Indian knowledge systems, Sanskrit language, Vedas, Samskaras, and heritage to students while promoting Vedic consciousness.' : 'संस्थान का मुख्य उद्देश्य भारतीय ज्ञान परंपरा, संस्कृत भाषा, वेद-वेदांग, संस्कार एवं भारतीय संस्कृति को विद्यार्थियों तक पहुँचाना तथा समाज में वैदिक चेतना का प्रसार करना है।'}
@@ -302,7 +302,7 @@ export default function Home({ onNavigate, lang }) {
       <section style={{ padding: '5rem 0', background: 'var(--bg-primary)' }}>
         <div className="container">
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', marginBottom: '4rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(1.5rem, 4vw, 3rem)', marginBottom: '4rem' }}>
             {/* Gurukul Card */}
             <div className="glass-panel" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>

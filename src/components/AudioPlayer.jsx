@@ -89,6 +89,7 @@ export default function AudioPlayer() {
   return (
     /* Floating Subtle Ambient Sound Indicator at Bottom-Left */
     <div
+      className="audio-player-pill"
       onClick={toggleAudio}
       title={isPlaying ? "Mute Calm Ashram Background Music" : "Play Calm Ashram Background Music"}
       style={{

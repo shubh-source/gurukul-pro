@@ -43,7 +43,7 @@ export default function SearchModal({ isOpen, onClose, onNavigate }) {
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        padding: '5rem 1rem 2rem 1rem'
+        padding: 'clamp(2rem, 8vh, 5rem) 0.75rem 2rem 0.75rem'
       }}
       onClick={onClose}
     >
@@ -54,7 +54,7 @@ export default function SearchModal({ isOpen, onClose, onNavigate }) {
           maxWidth: '680px',
           background: 'var(--bg-primary)',
           borderRadius: 'var(--radius-md)',
-          padding: '1.5rem',
+          padding: 'clamp(1rem, 3.5vw, 1.5rem)',
           boxShadow: 'var(--shadow-lg)',
           border: '1px solid var(--accent-gold)'
         }}
